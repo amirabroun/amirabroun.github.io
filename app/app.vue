@@ -1,7 +1,10 @@
 <template>
   <div class="site">
     <SiteHeader />
-    <NuxtPage />
+    <!-- page-key: Nuxt defaults to keying by route path, which would remount the
+         whole page when switching locale (/ <-> /fa). A stable key keeps one
+         instance so the locale swap is an in-place text update. -->
+    <NuxtPage page-key="home" />
   </div>
 </template>
 
