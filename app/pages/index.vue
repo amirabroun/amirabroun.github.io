@@ -1,5 +1,5 @@
 <template>
-  <main :key="locale">
+  <main>
     <HeroSection />
     <AboutSection />
     <ExperienceSection />
@@ -8,7 +8,3 @@
     <ContactSection />
   </main>
 </template>
-
-<script setup lang="ts">
-const { locale } = useI18n()
-</script>
