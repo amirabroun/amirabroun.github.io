@@ -113,7 +113,7 @@
   gap: 9px;
   padding: 7px 15px;
   border-radius: 999px;
-  background: #fff;
+  background: var(--surface-raised);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
   font-size: 0.85rem;

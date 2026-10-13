@@ -120,7 +120,7 @@
 .skill-learning {
   border-style: dashed;
   border-color: var(--blue-200);
-  background: linear-gradient(135deg, #fff, var(--blue-50));
+  background: linear-gradient(135deg, var(--surface-raised), var(--blue-50));
 }
 
 .learning-note {

@@ -171,9 +171,9 @@
 }
 
 .chip-work {
-  background: #f0fdf4;
-  border-color: #bbf7d0;
-  color: #15803d;
+  background: var(--ok-bg);
+  border-color: var(--ok-border);
+  color: var(--ok-text);
 }
 
 .featured p {

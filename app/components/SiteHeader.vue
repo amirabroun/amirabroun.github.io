@@ -14,28 +14,96 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <a
-        class="header-gh"
-        href="https://github.com/amirabroun"
-        target="_blank"
-        rel="noopener"
-        aria-label="GitHub profile"
-      >
-        <IconGithub />
-      </a>
+      <div class="header-actions">
+        <button
+          type="button"
+          class="header-btn"
+          :aria-label="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+          :title="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+          @click="toggleTheme"
+        >
+          <svg
+            v-if="theme === 'dark'"
+            width="17"
+            height="17"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+          <svg
+            v-else
+            width="17"
+            height="17"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
+
+        <a
+          class="header-btn"
+          href="https://github.com/amirabroun"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub profile"
+        >
+          <IconGithub />
+        </a>
+      </div>
     </div>
   </header>
 </template>
+
+<script setup lang="ts">
+const theme = ref<'light' | 'dark'>('light')
+
+onMounted(() => {
+  theme.value =
+    document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+})
+
+function toggleTheme() {
+  const next = theme.value === 'dark' ? 'light' : 'dark'
+  const root = document.documentElement
+
+  root.classList.add('theming')
+  root.setAttribute('data-theme', next)
+  localStorage.setItem('theme', next)
+  theme.value = next
+
+  window.setTimeout(() => root.classList.remove('theming'), 320)
+}
+</script>
 
 <style scoped>
 .site-header {
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  background: rgba(248, 250, 252, 0.78);
+  background: var(--header-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+  border-bottom: 1px solid var(--line);
 }
 
 .header-inner {
@@ -91,7 +159,13 @@
   text-decoration: none;
 }
 
-.header-gh {
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -100,11 +174,11 @@
   border-radius: 10px;
   color: var(--navy);
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--surface-raised);
   transition: border-color 0.2s, color 0.2s, transform 0.2s;
 }
 
-.header-gh:hover {
+.header-btn:hover {
   color: var(--blue-600);
   border-color: var(--blue-200);
   transform: translateY(-1px);
@@ -116,7 +190,7 @@
     display: none;
   }
 
-  .header-gh {
+  .header-actions {
     margin-left: auto;
   }
 }

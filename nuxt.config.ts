@@ -6,6 +6,13 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { lang: 'en' },
       title: 'Amir Abroun — Full-Stack Developer',
+      script: [
+        {
+          // set theme before first paint to avoid a flash of the wrong theme
+          innerHTML:
+            '(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","light")}})()',
+        },
+      ],
       meta: [
         {
           name: 'description',
