@@ -1,0 +1,321 @@
+/* ------------------------------------------------------------------
+   Amir Abroun — portfolio
+   Design system: Minimalism & Swiss · blue–white gradient
+   Headings: Space Grotesk · Body: Inter
+------------------------------------------------------------------- */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
+
+:root {
+  --bg: #f8fafc;
+  --ink: #0f172a;
+  --body: #475569;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --card: #ffffff;
+
+  --navy: #1e3a5f;
+  --blue-700: #1d4ed8;
+  --blue-600: #2563eb;
+  --blue-500: #3b82f6;
+  --sky-400: #38bdf8;
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bfdbfe;
+  --green: #16a34a;
+
+  --grad: linear-gradient(135deg, #1e3a5f 0%, #2563eb 48%, #38bdf8 100%);
+  --grad-soft: linear-gradient(135deg, rgba(30, 58, 95, 0.06), rgba(56, 189, 248, 0.1));
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 12px 32px -12px rgba(37, 99, 235, 0.2);
+  --shadow-lg: 0 24px 56px -16px rgba(30, 58, 95, 0.3);
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+
+  --font-body: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk Variable", "Space Grotesk", var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--body);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* soft page-wide blue wash */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(48rem 32rem at 85% -10%, rgba(56, 189, 248, 0.14), transparent 60%),
+    radial-gradient(42rem 30rem at -10% 20%, rgba(37, 99, 235, 0.12), transparent 60%),
+    radial-gradient(36rem 28rem at 50% 110%, rgba(30, 58, 95, 0.08), transparent 60%);
+}
+
+::selection {
+  background: var(--blue-200);
+}
+
+a {
+  color: var(--blue-600);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+svg {
+  flex: none;
+}
+
+/* layout ---------------------------------------------------------- */
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 88px 0;
+  scroll-margin-top: 88px;
+}
+
+.section-head {
+  margin-bottom: 44px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--grad);
+}
+
+.section-head h2 {
+  margin: 10px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* buttons ---------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--grad);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-lg);
+  color: #fff;
+}
+
+.btn-ghost {
+  background: #fff;
+  color: var(--navy);
+  border-color: var(--blue-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-ghost:hover {
+  border-color: var(--blue-500);
+  color: var(--blue-700);
+}
+
+.btn-white {
+  background: #fff;
+  color: var(--blue-700);
+  box-shadow: 0 10px 24px -10px rgba(2, 20, 50, 0.4);
+}
+
+.btn-white:hover {
+  color: var(--navy);
+}
+
+.btn-outline {
+  border-color: rgba(255, 255, 255, 0.65);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+/* cards & chips ---------------------------------------------------- */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--blue-200);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  color: var(--blue-700);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* scroll reveal ---------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.stagger > .reveal:nth-child(1) { transition-delay: 0.04s; }
+.stagger > .reveal:nth-child(2) { transition-delay: 0.1s; }
+.stagger > .reveal:nth-child(3) { transition-delay: 0.16s; }
+.stagger > .reveal:nth-child(4) { transition-delay: 0.22s; }
+.stagger > .reveal:nth-child(5) { transition-delay: 0.28s; }
+.stagger > .reveal:nth-child(6) { transition-delay: 0.34s; }
+.stagger > .reveal:nth-child(7) { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* print ------------------------------------------------------------ */
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  body::before,
+  .site-header,
+  .hero-cta,
+  .hero-badges,
+  .contact-actions {
+    display: none !important;
+  }
+
+  section {
+    padding: 26px 0;
+  }
+
+  .card {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  a {
+    color: inherit;
+  }
+}
