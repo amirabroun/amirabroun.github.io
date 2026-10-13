@@ -6,6 +6,18 @@
     </div>
 
     <div class="container hero-inner">
+      <div class="hero-avatar reveal">
+        <img
+          v-if="!avatarFailed"
+          src="https://github.com/amirabroun.png"
+          width="120"
+          height="120"
+          alt="Amir Abroun"
+          @error="avatarFailed = true"
+        >
+        <span v-else class="avatar-fallback" aria-hidden="true">AA</span>
+      </div>
+
       <p class="hero-badges reveal">
         <span class="status">
           <span class="status-dot" aria-hidden="true"></span>
@@ -56,6 +68,10 @@
   </section>
 </template>
 
+<script setup lang="ts">
+const avatarFailed = ref(false)
+</script>
+
 <style scoped>
 .hero {
   position: relative;
@@ -66,6 +82,37 @@
 .hero-inner {
   position: relative;
   text-align: center;
+}
+
+.hero-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--grad);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-fallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 .hero-bg {
