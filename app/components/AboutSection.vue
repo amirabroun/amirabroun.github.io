@@ -56,7 +56,7 @@
               </span>
               <div>
                 <dt>Current role</dt>
-                <dd>Full-Stack Developer @ Sanjeman</dd>
+                <dd>Software Engineer @ Sanjeman</dd>
               </div>
             </div>
 

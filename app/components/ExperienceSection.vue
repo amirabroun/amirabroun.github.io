@@ -16,7 +16,7 @@
                 <IconExternal />
               </a>
             </h3>
-            <p class="xp-role">Full-Stack Developer</p>
+            <p class="xp-role">Software Engineer</p>
           </div>
           <span class="chip chip-now">Present</span>
         </div>
