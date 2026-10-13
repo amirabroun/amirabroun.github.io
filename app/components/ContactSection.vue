@@ -2,35 +2,36 @@
   <section id="contact">
     <div class="container">
       <div class="contact-panel reveal">
-        <p class="contact-eyebrow">Contact</p>
-        <h2>Let's build something.</h2>
-        <p class="contact-sub">
-          I'm open to interesting full-stack and backend roles — and good
-          conversations about Laravel, Nuxt or Go.
-        </p>
+        <p class="contact-eyebrow">{{ t('contact.eyebrow') }}</p>
+        <h2>{{ t('contact.heading') }}</h2>
+        <p class="contact-sub">{{ t('contact.sub') }}</p>
 
         <div class="contact-actions stagger">
           <a class="btn btn-white reveal" href="https://github.com/amirabroun" target="_blank" rel="noopener">
             <IconGithub />
-            GitHub
+            {{ t('contact.github') }}
           </a>
           <a class="btn btn-outline reveal" href="https://www.linkedin.com/in/amir-abroun-4a7ab321a/" target="_blank" rel="noopener">
             <IconLinkedin />
-            LinkedIn
+            {{ t('contact.linkedin') }}
           </a>
           <a class="btn btn-outline reveal" href="https://sanjeman.com/" target="_blank" rel="noopener">
-            sanjeman.com
+            {{ t('contact.site') }}
           </a>
         </div>
       </div>
 
       <footer class="site-footer">
-        <span>© 2026 Amir Abroun</span>
-        <span>Built with Nuxt · Deployed on GitHub Pages</span>
+        <span>{{ t('contact.footer_left') }}</span>
+        <span>{{ t('contact.footer_right') }}</span>
       </footer>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .contact-panel {

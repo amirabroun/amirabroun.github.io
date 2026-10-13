@@ -2,8 +2,8 @@
   <section id="projects">
     <div class="container">
       <div class="section-head reveal">
-        <p class="eyebrow">Projects</p>
-        <h2>Things I've built</h2>
+        <p class="eyebrow">{{ t('nav.projects') }}</p>
+        <h2>{{ t('projects.heading') }}</h2>
       </div>
 
       <div class="projects-grid stagger">
@@ -11,17 +11,13 @@
           <div class="featured-head">
             <h3>
               <a href="https://sanjeman.com/" target="_blank" rel="noopener">
-                Sanjeman Platform
+                {{ t('projects.featured_title') }}
                 <IconExternal />
               </a>
             </h3>
-            <span class="chip chip-work">Work · Production</span>
+            <span class="chip chip-work">{{ t('projects.featured_badge') }}</span>
           </div>
-          <p>
-            A large-scale recruitment platform serving the Iranian market — Laravel
-            APIs, Nuxt 3 frontends, SSO, browser extensions and the infrastructure
-            behind it.
-          </p>
+          <p>{{ t('projects.featured_desc') }}</p>
           <div class="chips">
             <span class="chip">Laravel</span>
             <span class="chip">Nuxt 3</span>
@@ -31,92 +27,59 @@
           </div>
         </article>
 
-        <article class="card project reveal">
+        <article v-for="p in projects" :key="p.key" class="card project reveal">
           <h3>
-            <a href="https://github.com/amirabroun/nuxt-blog" target="_blank" rel="noopener">
-              nuxt-blog
+            <a :href="p.url" target="_blank" rel="noopener">
+              {{ t(`projects.items.${p.key}.title`) }}
               <IconExternal />
             </a>
           </h3>
-          <p>Blog application built with Nuxt — routing, SSR and content handling.</p>
+          <p>{{ t(`projects.items.${p.key}.desc`) }}</p>
           <div class="chips">
-            <span class="chip">Nuxt</span>
-            <span class="chip">Vue</span>
-          </div>
-        </article>
-
-        <article class="card project reveal">
-          <h3>
-            <a href="https://github.com/amirabroun/laravel-blog" target="_blank" rel="noopener">
-              laravel-blog
-              <IconExternal />
-            </a>
-          </h3>
-          <p>Blog engine in Laravel — Eloquent, auth and an admin area.</p>
-          <div class="chips">
-            <span class="chip">Laravel</span>
-            <span class="chip">PHP</span>
-          </div>
-        </article>
-
-        <article class="card project reveal">
-          <h3>
-            <a href="https://github.com/amirabroun/chat-app" target="_blank" rel="noopener">
-              chat-app
-              <IconExternal />
-            </a>
-          </h3>
-          <p>Real-time chat application.</p>
-          <div class="chips">
-            <span class="chip">JavaScript</span>
-          </div>
-        </article>
-
-        <article class="card project reveal">
-          <h3>
-            <a href="https://github.com/amirabroun/gin" target="_blank" rel="noopener">
-              gin
-              <IconExternal />
-            </a>
-          </h3>
-          <p>Learning Go by building REST APIs with the Gin framework.</p>
-          <div class="chips">
-            <span class="chip">Go</span>
-            <span class="chip">Gin</span>
-          </div>
-        </article>
-
-        <article class="card project reveal">
-          <h3>
-            <a href="https://github.com/amirabroun/comparison-redis-and-mysql" target="_blank" rel="noopener">
-              redis-vs-mysql
-              <IconExternal />
-            </a>
-          </h3>
-          <p>Benchmarking Redis against MySQL across real workloads.</p>
-          <div class="chips">
-            <span class="chip">Redis</span>
-            <span class="chip">MySQL</span>
-          </div>
-        </article>
-
-        <article class="card project reveal">
-          <h3>
-            <a href="https://github.com/amirabroun/php-container" target="_blank" rel="noopener">
-              php-container
-              <IconExternal />
-            </a>
-          </h3>
-          <p>Dockerized PHP development environment.</p>
-          <div class="chips">
-            <span class="chip">Docker</span>
-            <span class="chip">PHP</span>
+            <span v-for="c in p.chips" :key="c" class="chip">{{ c }}</span>
           </div>
         </article>
       </div>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const { t } = useI18n()
+
+const projects = [
+  {
+    key: 'nuxt_blog',
+    url: 'https://github.com/amirabroun/nuxt-blog',
+    chips: ['Nuxt', 'Vue'],
+  },
+  {
+    key: 'laravel_blog',
+    url: 'https://github.com/amirabroun/laravel-blog',
+    chips: ['Laravel', 'PHP'],
+  },
+  {
+    key: 'chat_app',
+    url: 'https://github.com/amirabroun/chat-app',
+    chips: ['JavaScript'],
+  },
+  {
+    key: 'gin',
+    url: 'https://github.com/amirabroun/gin',
+    chips: ['Go', 'Gin'],
+  },
+  {
+    key: 'redis_mysql',
+    url: 'https://github.com/amirabroun/comparison-redis-and-mysql',
+    chips: ['Redis', 'MySQL'],
+  },
+  {
+    key: 'php_container',
+    url: 'https://github.com/amirabroun/php-container',
+    chips: ['Docker', 'PHP'],
+  },
+]
+</script>
 
 <style scoped>
 .projects-grid {
@@ -136,7 +99,7 @@
 .featured::before {
   content: "";
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
   bottom: 0;
   width: 5px;

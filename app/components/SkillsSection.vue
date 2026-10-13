@@ -2,8 +2,8 @@
   <section id="skills">
     <div class="container">
       <div class="section-head reveal">
-        <p class="eyebrow">Skills</p>
-        <h2>The toolbox</h2>
+        <p class="eyebrow">{{ t('nav.skills') }}</p>
+        <h2>{{ t('skills.heading') }}</h2>
       </div>
 
       <div class="skills-grid stagger">
@@ -12,7 +12,7 @@
             <span class="skill-icon" aria-hidden="true">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
             </span>
-            Backend
+            {{ t('skills.backend') }}
           </h3>
           <div class="chips">
             <span class="chip">PHP</span>
@@ -29,7 +29,7 @@
             <span class="skill-icon" aria-hidden="true">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
             </span>
-            Frontend
+            {{ t('skills.frontend') }}
           </h3>
           <div class="chips">
             <span class="chip">Vue 2 / 3</span>
@@ -46,7 +46,7 @@
             <span class="skill-icon" aria-hidden="true">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></svg>
             </span>
-            DevOps &amp; Tooling
+            {{ t('skills.devops') }}
           </h3>
           <div class="chips">
             <span class="chip">Docker</span>
@@ -63,7 +63,7 @@
             <span class="skill-icon" aria-hidden="true">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </span>
-            Now learning
+            {{ t('skills.learning') }}
           </h3>
           <div class="chips">
             <span class="chip">Go</span>
@@ -71,13 +71,17 @@
           </div>
           <p class="learning-note">
             <span class="pulse-dot" aria-hidden="true"></span>
-            Always mid-flight on something new.
+            {{ t('skills.learning_note') }}
           </p>
         </article>
       </div>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .skills-grid {

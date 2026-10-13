@@ -3,18 +3,26 @@
     <div class="container header-inner">
       <a href="#top" class="logo" aria-label="Amir Abroun — back to top">
         <span class="logo-mark" aria-hidden="true">AA</span>
-        <span>Amir Abroun</span>
+        <span>{{ t('name') }}</span>
       </a>
 
       <nav class="site-nav" aria-label="Sections">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">{{ t('nav.about') }}</a>
+        <a href="#experience">{{ t('nav.experience') }}</a>
+        <a href="#skills">{{ t('nav.skills') }}</a>
+        <a href="#projects">{{ t('nav.projects') }}</a>
+        <a href="#contact">{{ t('nav.contact') }}</a>
       </nav>
 
       <div class="header-actions">
+        <NuxtLink
+          :to="switchLocalePath(otherLocale)"
+          class="header-btn header-lang"
+          :aria-label="isFa ? 'Change language to English' : 'تغییر زبان به فارسی'"
+        >
+          {{ isFa ? 'EN' : 'فا' }}
+        </NuxtLink>
+
         <button
           type="button"
           class="header-btn"
@@ -75,6 +83,11 @@
 </template>
 
 <script setup lang="ts">
+const { t, locale } = useI18n()
+const isFa = computed(() => locale.value === 'fa')
+const otherLocale = computed(() => (isFa.value ? 'en' : 'fa'))
+const switchLocalePath = useSwitchLocalePath()
+
 const theme = ref<'light' | 'dark'>('light')
 
 onMounted(() => {
@@ -145,7 +158,7 @@ function toggleTheme() {
 .site-nav {
   display: flex;
   gap: 26px;
-  margin-left: auto;
+  margin-inline-start: auto;
   font-size: 0.92rem;
   font-weight: 500;
 }
@@ -169,7 +182,7 @@ function toggleTheme() {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
+  min-width: 38px;
   height: 38px;
   border-radius: 10px;
   color: var(--navy);
@@ -185,13 +198,19 @@ function toggleTheme() {
   text-decoration: none;
 }
 
+.header-lang {
+  padding: 0 13px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 @media (max-width: 720px) {
   .site-nav {
     display: none;
   }
 
   .header-actions {
-    margin-left: auto;
+    margin-inline-start: auto;
   }
 }
 </style>

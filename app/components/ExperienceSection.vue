@@ -2,8 +2,8 @@
   <section id="experience">
     <div class="container">
       <div class="section-head reveal">
-        <p class="eyebrow">Experience</p>
-        <h2>Where I've been shipping</h2>
+        <p class="eyebrow">{{ t('nav.experience') }}</p>
+        <h2>{{ t('experience.heading') }}</h2>
       </div>
 
       <article class="card xp reveal">
@@ -12,35 +12,18 @@
           <div class="xp-id">
             <h3>
               <a href="https://sanjeman.com/" target="_blank" rel="noopener">
-                Sanjeman
+                {{ t('experience.company') }}
                 <IconExternal />
               </a>
             </h3>
-            <p class="xp-role">Software Engineer</p>
+            <p class="xp-role">{{ t('experience.role') }}</p>
           </div>
-          <span class="chip chip-now">Present</span>
+          <span class="chip chip-now">{{ t('experience.present') }}</span>
         </div>
 
         <ul class="xp-list">
-          <li>
-            Build and evolve the core Laravel API platform behind sanjeman.com — a
-            recruitment product serving the Iranian market.
-          </li>
-          <li>
-            Ship and maintain Nuxt 3 and Vue frontends: the main product, the admin
-            panel and SSO flows.
-          </li>
-          <li>
-            Own DevOps end-to-end — Docker, Nginx, GitLab CI/CD pipelines and
-            production MySQL &amp; Redis.
-          </li>
-          <li>
-            Integrate external services: payment gateways, SMS providers and job-board
-            partners.
-          </li>
-          <li>
-            Keep production healthy — GlitchTip/Sentry error triage, performance tuning
-            and code review across the team.
+          <li v-for="b in tm('experience.bullets')" :key="rt(b as never)">
+            {{ rt(b as never) }}
           </li>
         </ul>
 
@@ -59,6 +42,10 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const { t, tm, rt } = useI18n()
+</script>
 
 <style scoped>
 .xp {
@@ -113,7 +100,7 @@
 }
 
 .chip-now {
-  margin-left: auto;
+  margin-inline-start: auto;
   background: var(--ok-bg);
   border-color: var(--ok-border);
   color: var(--ok-text);
@@ -129,14 +116,14 @@
 
 .xp-list li {
   position: relative;
-  padding-left: 26px;
+  padding-inline-start: 26px;
   font-size: 0.98rem;
 }
 
 .xp-list li::before {
   content: "";
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 0.55em;
   width: 8px;
   height: 8px;
@@ -156,7 +143,7 @@
   }
 
   .chip-now {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 }
 </style>

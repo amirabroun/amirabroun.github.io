@@ -12,7 +12,7 @@
           src="https://github.com/amirabroun.png"
           width="120"
           height="120"
-          alt="Amir Abroun"
+          :alt="t('name')"
           @error="avatarFailed = true"
         >
         <span v-else class="avatar-fallback" aria-hidden="true">AA</span>
@@ -21,47 +21,44 @@
       <p class="hero-badges reveal">
         <span class="status">
           <span class="status-dot" aria-hidden="true"></span>
-          Open to new opportunities
+          {{ t('hero.status') }}
         </span>
       </p>
 
-      <p class="eyebrow reveal">Full-Stack Developer</p>
+      <p class="eyebrow reveal">{{ t('hero.eyebrow') }}</p>
 
-      <h1 class="hero-title grad-text reveal">Amir Abroun</h1>
+      <h1 class="hero-title grad-text reveal">{{ t('name') }}</h1>
 
-      <p class="hero-sub reveal">
-        Laravel APIs on the backend, Vue &amp; Nuxt on the frontend, and the Docker,
-        Nginx &amp; CI plumbing in between — I build web products end-to-end.
-      </p>
+      <p class="hero-sub reveal">{{ t('hero.sub') }}</p>
 
       <ul class="hero-meta reveal">
         <li>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          Iran · open to remote
+          {{ t('hero.meta_location') }}
         </li>
         <li>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          6+ years of experience
+          {{ t('hero.meta_experience') }}
         </li>
         <li>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>
-          Building
-          <a href="https://sanjeman.com/" target="_blank" rel="noopener">Sanjeman</a>
+          {{ t('hero.meta_company') }}
+          <a href="https://sanjeman.com/" target="_blank" rel="noopener">{{ t('hero.company_name') }}</a>
         </li>
       </ul>
 
       <div class="hero-cta stagger">
         <a class="btn btn-primary reveal" href="#projects">
-          See my work
+          {{ t('hero.cta') }}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
         <a class="btn btn-ghost reveal" href="https://github.com/amirabroun" target="_blank" rel="noopener">
           <IconGithub />
-          GitHub
+          {{ t('hero.github') }}
         </a>
         <a class="btn btn-ghost reveal" href="https://www.linkedin.com/in/amir-abroun-4a7ab321a/" target="_blank" rel="noopener">
           <IconLinkedin />
-          LinkedIn
+          {{ t('hero.linkedin') }}
         </a>
       </div>
     </div>
@@ -69,6 +66,7 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
 const avatarFailed = ref(false)
 </script>
 

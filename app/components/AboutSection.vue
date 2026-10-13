@@ -2,30 +2,15 @@
   <section id="about">
     <div class="container">
       <div class="section-head reveal">
-        <p class="eyebrow">About</p>
-        <h2>A backend-heavy full-stack developer who ships</h2>
+        <p class="eyebrow">{{ t('nav.about') }}</p>
+        <h2>{{ t('about.heading') }}</h2>
       </div>
 
       <div class="about-grid">
         <div class="about-text reveal">
-          <p>
-            I'm a full-stack developer with 6+ years of experience, based in Iran and
-            comfortable anywhere in the stack — from database schemas and Laravel APIs
-            to Nuxt frontends and the CI/CD pipeline that ships them.
-          </p>
-          <p>
-            These days I'm at
-            <a href="https://sanjeman.com/" target="_blank" rel="noopener">Sanjeman</a>,
-            building the recruitment platform at sanjeman.com: a Laravel backend
-            powering Nuxt 3 and Vue frontends, SSO, browser extensions and integrations
-            with payments, SMS providers and job boards — plus the DevOps (Docker,
-            Nginx, GitLab CI, GlitchTip error tracking) that keeps it all running in
-            production.
-          </p>
-          <p>
-            When I'm not shipping features, I'm probably tuning Docker images, hunting
-            errors in GlitchTip, or picking up Go.
-          </p>
+          <p>{{ t('about.p1') }}</p>
+          <p>{{ t('about.p2') }}</p>
+          <p>{{ t('about.p3') }}</p>
         </div>
 
         <aside class="facts card reveal" aria-label="Quick facts">
@@ -35,8 +20,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               </span>
               <div>
-                <dt>Location</dt>
-                <dd>Iran — open to remote</dd>
+                <dt>{{ t('about.facts.location.label') }}</dt>
+                <dd>{{ t('about.facts.location.value') }}</dd>
               </div>
             </div>
 
@@ -45,8 +30,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
               </span>
               <div>
-                <dt>Experience</dt>
-                <dd>6+ years</dd>
+                <dt>{{ t('about.facts.experience.label') }}</dt>
+                <dd>{{ t('about.facts.experience.value') }}</dd>
               </div>
             </div>
 
@@ -55,8 +40,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>
               </span>
               <div>
-                <dt>Current role</dt>
-                <dd>Software Engineer @ Sanjeman</dd>
+                <dt>{{ t('about.facts.role.label') }}</dt>
+                <dd>{{ t('about.facts.role.value') }}</dd>
               </div>
             </div>
 
@@ -65,8 +50,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
               </span>
               <div>
-                <dt>Education</dt>
-                <dd>B.Sc. Computer Engineering, Hakim Sabzevari University</dd>
+                <dt>{{ t('about.facts.education.label') }}</dt>
+                <dd>{{ t('about.facts.education.value') }}</dd>
               </div>
             </div>
 
@@ -75,8 +60,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-10 12h7l-1 8 10-12h-7l1-8Z"/></svg>
               </span>
               <div>
-                <dt>Focus</dt>
-                <dd>Laravel · Vue/Nuxt · DevOps</dd>
+                <dt>{{ t('about.facts.focus.label') }}</dt>
+                <dd>{{ t('about.facts.focus.value') }}</dd>
               </div>
             </div>
 
@@ -85,8 +70,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               </span>
               <div>
-                <dt>Currently learning</dt>
-                <dd>Go</dd>
+                <dt>{{ t('about.facts.learning.label') }}</dt>
+                <dd>{{ t('about.facts.learning.value') }}</dd>
               </div>
             </div>
           </dl>
@@ -95,6 +80,10 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .about-grid {

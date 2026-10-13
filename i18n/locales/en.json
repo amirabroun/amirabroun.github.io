@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Amir Abroun — Full-Stack Developer",
+    "description": "Amir Abroun — full-stack developer with 6+ years of experience. Laravel APIs, Vue & Nuxt frontends, Docker & CI/CD. Currently at Sanjeman."
+  },
+  "name": "Amir Abroun",
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "status": "Open to new opportunities",
+    "eyebrow": "Full-Stack Developer",
+    "sub": "Laravel APIs on the backend, Vue & Nuxt on the frontend, and the Docker, Nginx & CI plumbing in between — I build web products end-to-end.",
+    "meta_location": "Iran · open to remote",
+    "meta_experience": "6+ years of experience",
+    "meta_company": "Building",
+    "company_name": "Sanjeman",
+    "cta": "See my work",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "about": {
+    "heading": "A backend-heavy full-stack developer who ships",
+    "p1": "I'm a full-stack developer with 6+ years of experience, based in Iran and comfortable anywhere in the stack — from database schemas and Laravel APIs to Nuxt frontends and the CI/CD pipeline that ships them.",
+    "p2": "These days I'm at Sanjeman, building the recruitment platform at sanjeman.com: a Laravel backend powering Nuxt 3 and Vue frontends, SSO, browser extensions and integrations with payments, SMS providers and job boards — plus the DevOps (Docker, Nginx, GitLab CI, GlitchTip error tracking) that keeps it all running in production.",
+    "p3": "When I'm not shipping features, I'm probably tuning Docker images, hunting errors in GlitchTip, or picking up Go.",
+    "facts": {
+      "location": { "label": "Location", "value": "Iran — open to remote" },
+      "experience": { "label": "Experience", "value": "6+ years" },
+      "role": { "label": "Current role", "value": "Software Engineer at Sanjeman" },
+      "education": { "label": "Education", "value": "B.Sc. Computer Engineering, Hakim Sabzevari University" },
+      "focus": { "label": "Focus", "value": "Laravel · Vue/Nuxt · DevOps" },
+      "learning": { "label": "Currently learning", "value": "Go" }
+    }
+  },
+  "experience": {
+    "heading": "Where I've been shipping",
+    "company": "Sanjeman",
+    "role": "Software Engineer",
+    "present": "Present",
+    "bullets": [
+      "Build and evolve the core Laravel API platform behind sanjeman.com — a recruitment product serving the Iranian market.",
+      "Ship and maintain Nuxt 3 and Vue frontends: the main product, the admin panel and SSO flows.",
+      "Own DevOps end-to-end — Docker, Nginx, GitLab CI/CD pipelines and production MySQL & Redis.",
+      "Integrate external services: payment gateways, SMS providers and job-board partners.",
+      "Keep production healthy — GlitchTip/Sentry error triage, performance tuning and code review across the team."
+    ]
+  },
+  "skills": {
+    "heading": "The toolbox",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "devops": "DevOps & Tooling",
+    "learning": "Now learning",
+    "learning_note": "Always mid-flight on something new."
+  },
+  "projects": {
+    "heading": "Things I've built",
+    "featured_badge": "Work · Production",
+    "featured_title": "Sanjeman Platform",
+    "featured_desc": "A large-scale recruitment platform serving the Iranian market — Laravel APIs, Nuxt 3 frontends, SSO, browser extensions and the infrastructure behind it.",
+    "items": {
+      "nuxt_blog": {
+        "title": "nuxt-blog",
+        "desc": "Blog application built with Nuxt — routing, SSR and content handling."
+      },
+      "laravel_blog": {
+        "title": "laravel-blog",
+        "desc": "Blog engine in Laravel — Eloquent, auth and an admin area."
+      },
+      "chat_app": {
+        "title": "chat-app",
+        "desc": "Real-time chat application."
+      },
+      "gin": {
+        "title": "gin",
+        "desc": "Learning Go by building REST APIs with the Gin framework."
+      },
+      "redis_mysql": {
+        "title": "redis-vs-mysql",
+        "desc": "Benchmarking Redis against MySQL across real workloads."
+      },
+      "php_container": {
+        "title": "php-container",
+        "desc": "Dockerized PHP development environment."
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Let's build something.",
+    "sub": "I'm open to interesting full-stack and backend roles — and good conversations about Laravel, Nuxt or Go.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "site": "sanjeman.com",
+    "footer_left": "© 2026 Amir Abroun",
+    "footer_right": "Built with Nuxt · Deployed on GitHub Pages"
+  }
+}
