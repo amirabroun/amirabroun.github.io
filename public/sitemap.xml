@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://amirabroun.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amirabroun.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://amirabroun.github.io/fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amirabroun.github.io/"/>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://amirabroun.github.io/fa/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amirabroun.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://amirabroun.github.io/fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amirabroun.github.io/"/>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+</urlset>
