@@ -1,8 +1,8 @@
 import type { RouterConfig } from '@nuxt/schema'
 
-// strip the /fa locale prefix so / and /fa are recognized as the same page
+// strip the /en locale prefix so / and /en are recognized as the same page
 function stripLocale(path: string): string {
-  return path.replace(/^\/fa(\/|$)/, '/') || '/'
+  return path.replace(/^\/en(\/|$)/, '/') || '/'
 }
 
 export default <RouterConfig>{

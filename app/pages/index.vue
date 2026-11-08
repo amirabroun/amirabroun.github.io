@@ -1,7 +1,7 @@
 <template>
   <main>
     <HeroSection />
-    <AboutSection />
+    <SnapshotSection />
     <ExperienceSection />
     <SkillsSection />
     <ProjectsSection />

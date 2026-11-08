@@ -7,26 +7,53 @@
       </div>
 
       <div class="projects-grid stagger">
+        <!-- tier 1 — live product on own domain -->
         <article class="card featured reveal">
+          <div class="featured-body">
+            <div class="featured-head">
+              <h3>
+                <a href="https://kapsul.amirabroun.ir" target="_blank" rel="noopener">
+                  {{ t('projects.kapsul.title') }}
+                  <IconExternal />
+                </a>
+              </h3>
+              <span class="chip chip-work">{{ t('projects.kapsul.badge') }}</span>
+            </div>
+            <p>{{ t('projects.kapsul.desc') }}</p>
+            <div class="chips">
+              <span v-for="c in kapsulChips" :key="c" class="chip">{{ c }}</span>
+            </div>
+          </div>
+          <img
+            v-if="!shotFailed"
+            class="featured-shot"
+            src="/img/kapsul.png"
+            width="640"
+            height="400"
+            loading="lazy"
+            :alt="t('projects.kapsul.title')"
+            @error="shotFailed = true"
+          >
+        </article>
+
+        <!-- tier 2 — production store, wide -->
+        <article class="card project project-wide reveal">
           <div class="featured-head">
             <h3>
-              <a href="https://sanjeman.com/" target="_blank" rel="noopener">
-                {{ t('projects.featured_title') }}
+              <a href="https://anbaritoys.ir/" target="_blank" rel="noopener">
+                {{ t('projects.items.anbaritoys.title') }}
                 <IconExternal />
               </a>
             </h3>
-            <span class="chip chip-work">{{ t('projects.featured_badge') }}</span>
+            <span class="chip chip-work">{{ t('projects.items.anbaritoys.badge') }}</span>
           </div>
-          <p>{{ t('projects.featured_desc') }}</p>
+          <p>{{ t('projects.items.anbaritoys.desc') }}</p>
           <div class="chips">
-            <span class="chip">Laravel</span>
-            <span class="chip">Nuxt 3</span>
-            <span class="chip">MySQL</span>
-            <span class="chip">Docker</span>
-            <span class="chip">GitLab CI</span>
+            <span v-for="c in anbaritoysChips" :key="c" class="chip">{{ c }}</span>
           </div>
         </article>
 
+        <!-- tier 3 — compact -->
         <article v-for="p in projects" :key="p.key" class="card project reveal">
           <h3>
             <a :href="p.url" target="_blank" rel="noopener">
@@ -46,22 +73,16 @@
 
 <script setup lang="ts">
 const { t } = useI18n()
+const shotFailed = ref(false)
+
+const kapsulChips = ['Nuxt 3', 'TypeScript', 'Cloudflare Workers', 'D1', 'Tailwind v4']
+const anbaritoysChips = ['PHP 8.2', 'MariaDB', 'Docker', 'Zarinpal']
 
 const projects = [
   {
-    key: 'nuxt_blog',
-    url: 'https://github.com/amirabroun/nuxt-blog',
-    chips: ['Nuxt', 'Vue'],
-  },
-  {
-    key: 'laravel_blog',
-    url: 'https://github.com/amirabroun/laravel-blog',
-    chips: ['Laravel', 'PHP'],
-  },
-  {
-    key: 'chat_app',
-    url: 'https://github.com/amirabroun/chat-app',
-    chips: ['JavaScript'],
+    key: 'hermes_mini',
+    url: 'https://github.com/amirabroun/hermes-mini',
+    chips: ['TypeScript', 'Cloudflare', 'AI'],
   },
   {
     key: 'gin',
@@ -72,11 +93,6 @@ const projects = [
     key: 'redis_mysql',
     url: 'https://github.com/amirabroun/comparison-redis-and-mysql',
     chips: ['Redis', 'MySQL'],
-  },
-  {
-    key: 'php_container',
-    url: 'https://github.com/amirabroun/php-container',
-    chips: ['Docker', 'PHP'],
   },
 ]
 </script>
@@ -94,6 +110,10 @@ const projects = [
   overflow: hidden;
   padding: 28px 32px;
   border-color: var(--blue-200);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 26px;
+  align-items: center;
 }
 
 .featured::before {
@@ -139,10 +159,17 @@ const projects = [
   color: var(--ok-text);
 }
 
-.featured p {
+.featured-body p {
   margin: 0 0 16px;
-  max-width: 640px;
   font-size: 0.98rem;
+}
+
+.featured-shot {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
 }
 
 .project {
@@ -150,6 +177,10 @@ const projects = [
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.project-wide {
+  grid-column: span 2;
 }
 
 .project h3 {
@@ -187,8 +218,12 @@ const projects = [
 }
 
 @media (max-width: 960px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .featured {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-shot {
+    order: -1;
   }
 }
 
@@ -199,6 +234,10 @@ const projects = [
 
   .featured {
     padding: 24px;
+  }
+
+  .project-wide {
+    grid-column: auto;
   }
 }
 </style>

@@ -15,12 +15,11 @@
             {{ t('skills.backend') }}
           </h3>
           <div class="chips">
-            <span class="chip">PHP</span>
+            <span class="chip">PHP 8</span>
             <span class="chip">Laravel</span>
             <span class="chip">MySQL</span>
-            <span class="chip">Redis</span>
-            <span class="chip">REST APIs</span>
-            <span class="chip">Queues &amp; Jobs</span>
+            <span class="chip">Redis / Horizon</span>
+            <span class="chip">REST API</span>
           </div>
         </article>
 
@@ -32,12 +31,11 @@
             {{ t('skills.frontend') }}
           </h3>
           <div class="chips">
-            <span class="chip">Vue 2 / 3</span>
+            <span class="chip">Vue 2/3</span>
             <span class="chip">Nuxt 3</span>
-            <span class="chip">JavaScript</span>
             <span class="chip">TypeScript</span>
-            <span class="chip">Tailwind CSS</span>
-            <span class="chip">Blade</span>
+            <span class="chip">Tailwind CSS v4</span>
+            <span class="chip">Vuetify</span>
           </div>
         </article>
 
@@ -50,11 +48,27 @@
           </h3>
           <div class="chips">
             <span class="chip">Docker</span>
-            <span class="chip">Nginx</span>
-            <span class="chip">Linux</span>
+            <span class="chip">nginx</span>
             <span class="chip">GitLab CI/CD</span>
+            <span class="chip">{{ locale === 'fa' ? 'لینوکس (TLS/فایروال)' : 'Linux (TLS/firewall)' }}</span>
             <span class="chip">GlitchTip / Sentry</span>
+          </div>
+        </article>
+
+        <article class="card skill-card reveal">
+          <h3>
+            <span class="skill-icon" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+            </span>
+            {{ t('skills.methods') }}
+          </h3>
+          <div class="chips">
             <span class="chip">Git</span>
+            <span class="chip">{{ locale === 'fa' ? 'TDD با Pest (۸۰۰+)' : 'TDD w/ Pest (800+)' }}</span>
+            <span class="chip">phpstan / rector</span>
+            <span class="chip">vue-tsc</span>
+            <span class="chip">Playwright</span>
+            <span class="chip">ADR</span>
           </div>
         </article>
 
@@ -67,7 +81,6 @@
           </h3>
           <div class="chips">
             <span class="chip">Go</span>
-            <span class="chip">Gin</span>
           </div>
           <p class="learning-note">
             <span class="pulse-dot" aria-hidden="true"></span>
@@ -80,7 +93,7 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 </script>
 
 <style scoped>

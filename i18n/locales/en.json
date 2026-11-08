@@ -1,95 +1,175 @@
 {
   "meta": {
     "title": "Amir Abroun — Full-Stack Developer",
-    "description": "Amir Abroun — full-stack developer with 6+ years of experience. Laravel APIs, Vue & Nuxt frontends, Docker & CI/CD. Currently at Sanjeman.",
+    "description": "Amir Abroun — full-stack developer with 5+ years of experience. Laravel APIs, Vue & Nuxt frontends, Docker & CI/CD. Currently at Sanjeman.",
     "ogImageAlt": "Amir Abroun — full-stack developer: Laravel APIs, Vue & Nuxt frontends, Docker & CI/CD."
   },
   "name": "Amir Abroun",
   "nav": {
-    "about": "About",
+    "about": "Snapshot",
     "experience": "Experience",
     "skills": "Skills",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cv": "Résumé"
   },
   "hero": {
     "status": "Open to new opportunities",
-    "eyebrow": "Full-Stack Developer",
-    "sub": "Laravel APIs on the backend, Vue & Nuxt on the frontend, and the Docker, Nginx & CI plumbing in between — I build web products end-to-end.",
+    "eyebrow": "Full-Stack Developer, Laravel at the core",
+    "sub": "For 5 years I've been building the core of Sanjeman, an HR SaaS platform — Laravel APIs, Vue/Nuxt frontends, and the CI/CD and servers underneath. I take features from idea to production on my own.",
     "meta_location": "Iran · open to remote",
-    "meta_experience": "6+ years of experience",
+    "meta_experience": "5+ years experience",
     "meta_company": "Building",
     "company_name": "Sanjeman",
-    "cta": "See my work",
+    "cta": "My work",
+    "resume": "Download résumé",
     "github": "GitHub",
-    "linkedin": "LinkedIn"
-  },
-  "about": {
-    "heading": "A backend-heavy full-stack developer who ships",
-    "p1": "I'm a full-stack developer with 6+ years of experience, based in Iran and comfortable anywhere in the stack — from database schemas and Laravel APIs to Nuxt frontends and the CI/CD pipeline that ships them.",
-    "p2": "These days I'm at Sanjeman, building the recruitment platform at sanjeman.com: a Laravel backend powering Nuxt 3 and Vue frontends, SSO, browser extensions and integrations with payments, SMS providers and job boards — plus the DevOps (Docker, Nginx, GitLab CI, GlitchTip error tracking) that keeps it all running in production.",
-    "p3": "When I'm not shipping features, I'm probably tuning Docker images, hunting errors in GlitchTip, or picking up Go.",
-    "facts": {
-      "location": { "label": "Location", "value": "Iran — open to remote" },
-      "experience": { "label": "Experience", "value": "6+ years" },
-      "role": { "label": "Current role", "value": "Software Engineer at Sanjeman" },
-      "education": { "label": "Education", "value": "B.Sc. Computer Engineering, Hakim Sabzevari University" },
-      "focus": { "label": "Focus", "value": "Laravel · Vue/Nuxt · DevOps" },
-      "learning": { "label": "Currently learning", "value": "Go" }
+    "linkedin": "LinkedIn",
+    "stats": {
+      "years": "years at Sanjeman",
+      "micro": "core microservices",
+      "tests": "Pest tests",
+      "resumes": "résumés/day",
+      "fraction": "5 of 11"
     }
+  },
+  "snapshot": {
+    "heading": "The short version",
+    "now_title": "Now",
+    "now_body": "Learning Go, finishing my MSc, shipping kapsul v2.",
+    "role_title": "Role",
+    "role_body": "Software Engineer at Sanjeman — 3-person product team.",
+    "stack_title": "Core stack",
+    "education_title": "Education",
+    "education_body": "MSc Computer Engineering — Software, Azad University of Sabzevar (in progress) · BSc: Hakim Sabzevari University.",
+    "openness_title": "Status",
+    "openness_body": "Open to full-stack/backend roles — remote or on-site.",
+    "outside_title": "Outside code",
+    "outside_body": "I run a real online store with 700+ products — where a bug means a real customer notices."
   },
   "experience": {
     "heading": "Where I've been shipping",
     "company": "Sanjeman",
     "role": "Software Engineer",
     "present": "Present",
-    "bullets": [
-      "Build and evolve the core Laravel API platform behind sanjeman.com — a recruitment product serving the Iranian market.",
-      "Ship and maintain Nuxt 3 and Vue frontends: the main product, the admin panel and SSO flows.",
-      "Own DevOps end-to-end — Docker, Nginx, GitLab CI/CD pipelines and production MySQL & Redis.",
-      "Integrate external services: payment gateways, SMS providers and job-board partners.",
-      "Keep production healthy — GlitchTip/Sentry error triage, performance tuning and code review across the team."
-    ]
+    "sanjeman": {
+      "date": "Oct 2021 – Present",
+      "subline": "3-person product team · on 5 of 11 core microservices",
+      "tabs": [
+        {
+          "label": "AI Interviewer",
+          "bullets": [
+            "Built the AI interviewer from scratch: Laravel conversation & analysis backend, multi-dimensional scoring, interview reports",
+            "Vue UI with synchronized audio playback; pluggable into any LLM with an API"
+          ],
+          "metric": "~30% faster screening"
+        },
+        {
+          "label": "Psychometric tests",
+          "bullets": [
+            "Online testing platform with OTP guest login",
+            "Scoring engine that derives the scores of 11 tests from raw answers"
+          ],
+          "metric": "~300 monthly active users"
+        },
+        {
+          "label": "Integrations",
+          "bullets": [
+            "6 job boards and 7+ SMS panels behind a Strategy + Template Method pattern — new providers without touching existing code",
+            "On-premise compatible"
+          ],
+          "metric": "~500 résumés/day · ~1,000 jobs/day in Horizon"
+        },
+        {
+          "label": "SSO & payments",
+          "bullets": [
+            "Central SSO and OTP login as the auth hub for 4 frontends",
+            "Zarinpal payments (serialized checkout, race handling, discount codes) and a reseller panel with impersonation"
+          ]
+        },
+        {
+          "label": "Quality & DevOps",
+          "bullets": [
+            "800+ Pest tests, phpstan/rector and vue-tsc gates in CI, Playwright e2e",
+            "GlitchTip error tracking; self-managed Linux staging server (TLS, firewall)",
+            "Fixed N+1 and memory exhaustion in high-traffic services"
+          ]
+        }
+      ]
+    },
+    "anbaritoys": {
+      "company": "Anbari Toys",
+      "role": "Owner — solo rebuild & maintenance",
+      "date": "Oct 2025 – Present",
+      "bullets": [
+        "Took over an online store with 700+ products from the previous developer — unstable framework-less PHP 8.2 with no tests or docs — and rebuilt it: fixed the bugs, documented it, moved it to Git.",
+        "Run and extend the storefront and full admin panel (products, variants, categories, brands, coupons, blog) on MariaDB with hand-written SQL; Zarinpal & IDPay payments, Kavenegar SMS, customer accounts and order tracking.",
+        "Migrated hosting from shared cPanel/Apache to Docker (nginx + php-fpm)."
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "msc": "MSc Computer Engineering — Software, in progress",
+      "msc_note": "Azad University of Sabzevar · graduating 2029",
+      "bsc": "BSc Computer Engineering",
+      "bsc_note": "Hakim Sabzevari University · Oct 2020 – Feb 2026"
+    },
+    "language": {
+      "title": "Languages",
+      "english": "English"
+    }
   },
   "skills": {
     "heading": "The toolbox",
     "backend": "Backend",
     "frontend": "Frontend",
     "devops": "DevOps & Tooling",
+    "methods": "Engineering practices",
     "learning": "Now learning",
     "learning_note": "Always mid-flight on something new."
   },
   "projects": {
     "heading": "Things I've built",
-    "featured_badge": "Work · Production",
-    "featured_title": "Sanjeman Platform",
-    "featured_desc": "A large-scale recruitment platform serving the Iranian market — Laravel APIs, Nuxt 3 frontends, SSO, browser extensions and the infrastructure behind it.",
+    "kapsul": {
+      "title": "kapsul",
+      "badge": "Live · own domain",
+      "desc": "Fire-extinguisher recharge tracker — full-stack Nuxt 3 + D1 on Cloudflare Workers; Jalali calendar, printable day sheets, CSV export."
+    },
     "items": {
-      "nuxt_blog": {
-        "title": "nuxt-blog",
-        "desc": "Blog application built with Nuxt — routing, SSR and content handling."
+      "anbaritoys": {
+        "title": "Anbari Toys",
+        "badge": "In production",
+        "desc": "A real online store with 700+ products — full rebuild, payment gateway, SMS, Docker."
       },
-      "laravel_blog": {
-        "title": "laravel-blog",
-        "desc": "Blog engine in Laravel — Eloquent, auth and an admin area."
-      },
-      "chat_app": {
-        "title": "chat-app",
-        "desc": "Real-time chat application."
+      "hermes_mini": {
+        "title": "hermes-mini",
+        "desc": "Telegram assistant for daily tasks — Cloudflare Workers + D1 + Workers AI."
       },
       "gin": {
         "title": "gin",
-        "desc": "Learning Go by building REST APIs with the Gin framework."
+        "desc": "REST API in Go with Gin — learning path."
       },
       "redis_mysql": {
         "title": "redis-vs-mysql",
-        "desc": "Benchmarking Redis against MySQL across real workloads."
-      },
-      "php_container": {
-        "title": "php-container",
-        "desc": "Dockerized PHP development environment."
+        "desc": "Benchmarking Redis against MySQL on real workloads."
       }
     }
+  },
+  "now": {
+    "eyebrow": "Now",
+    "title": "Now — November 2026",
+    "sub": "The /now page pattern — a quick look at what I'm working on these days.",
+    "items": [
+      "Writing Go — a REST API with Gin",
+      "MSc in Software Engineering — first-year student",
+      "kapsul: v2 with the Jalali calendar and printable day sheets is live",
+      "Sanjeman: the AI interviewer and job-board integrations"
+    ],
+    "updated": "Last updated: November 2026"
+  },
+  "cv": {
+    "download": "Download PDF",
+    "print": "Print"
   },
   "contact": {
     "eyebrow": "Contact",
@@ -99,6 +179,6 @@
     "linkedin": "LinkedIn",
     "site": "sanjeman.com",
     "footer_left": "© 2026 Amir Abroun",
-    "footer_right": "Built with Nuxt · Deployed on GitHub Pages"
+    "footer_right": "Built with Nuxt · Deployed on GitHub Pages · amirabroun.ir"
   }
 }

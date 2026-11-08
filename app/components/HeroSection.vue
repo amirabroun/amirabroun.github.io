@@ -9,7 +9,7 @@
       <div class="hero-avatar reveal">
         <img
           v-if="!avatarFailed"
-          src="https://github.com/amirabroun.png"
+          src="/img/avatar.jpg"
           width="120"
           height="120"
           :alt="t('name')"
@@ -30,6 +30,10 @@
       <h1 class="hero-title grad-text reveal">{{ t('name') }}</h1>
 
       <p class="hero-sub reveal">{{ t('hero.sub') }}</p>
+
+      <p class="hero-type reveal" dir="ltr" aria-hidden="true">
+        {{ twText }}<span class="tw-cursor">▍</span>
+      </p>
 
       <ul class="hero-meta reveal">
         <li>
@@ -52,6 +56,10 @@
           {{ t('hero.cta') }}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
+        <a class="btn btn-ghost reveal" href="/cv">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          {{ t('hero.resume') }}
+        </a>
         <a class="btn btn-ghost reveal" href="https://github.com/amirabroun" target="_blank" rel="noopener">
           <IconGithub />
           {{ t('hero.github') }}
@@ -61,6 +69,16 @@
           {{ t('hero.linkedin') }}
         </a>
       </div>
+
+      <ul class="hero-stats reveal" role="list">
+        <li><StatCounter :value="5" suffix="+" :label="t('hero.stats.years')" /></li>
+        <li>
+          <span class="stat-value">{{ t('hero.stats.fraction') }}</span>
+          <span class="stat-label">{{ t('hero.stats.micro') }}</span>
+        </li>
+        <li><StatCounter :value="800" suffix="+" :label="t('hero.stats.tests')" /></li>
+        <li><StatCounter :value="500" prefix="~" :label="t('hero.stats.resumes')" /></li>
+      </ul>
     </div>
   </section>
 </template>
@@ -68,6 +86,50 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const avatarFailed = ref(false)
+
+// terminal typewriter — SSR/static shows the first line, JS loops the rest
+const TW_LINES = [
+  '$ php artisan make:impact',
+  '$ npm run dev -- --host 0.0.0.0',
+  '$ docker compose up -d',
+  '$ git push origin main',
+]
+const FIRST_LINE = TW_LINES[0]!
+const twText = ref(FIRST_LINE)
+let twTimer: ReturnType<typeof setTimeout> | undefined
+
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  let line = 0
+  let chars = FIRST_LINE.length
+  let deleting = true
+  const step = () => {
+    const text = TW_LINES[line] ?? FIRST_LINE
+    if (deleting) {
+      chars--
+      twText.value = text.slice(0, chars)
+      if (chars === 0) {
+        deleting = false
+        line = (line + 1) % TW_LINES.length
+        twTimer = setTimeout(step, 350)
+        return
+      }
+      twTimer = setTimeout(step, 30)
+    } else {
+      chars++
+      twText.value = text.slice(0, chars)
+      if (chars === text.length) {
+        deleting = true
+        twTimer = setTimeout(step, 1800)
+        return
+      }
+      twTimer = setTimeout(step, 55)
+    }
+  }
+  twTimer = setTimeout(step, 1400)
+})
+
+onBeforeUnmount(() => clearTimeout(twTimer))
 </script>
 
 <style scoped>
@@ -207,6 +269,26 @@ const avatarFailed = ref(false)
   font-size: clamp(1.02rem, 2vw, 1.22rem);
 }
 
+.hero-type {
+  margin: 20px auto 0;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tw-cursor {
+  animation: blink 1.1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 .hero-meta {
   list-style: none;
   display: flex;
@@ -234,5 +316,42 @@ const avatarFailed = ref(false)
   flex-wrap: wrap;
   justify-content: center;
   gap: 14px;
+}
+
+.hero-stats {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 760px;
+  padding: 0;
+  margin: 42px auto 0;
+}
+
+.hero-stats li {
+  display: block;
+  text-align: center;
+}
+
+.hero-stats .stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.hero-stats .stat-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>

@@ -7,11 +7,12 @@
       </a>
 
       <nav class="site-nav" aria-label="Sections">
-        <a href="#about">{{ t('nav.about') }}</a>
-        <a href="#experience">{{ t('nav.experience') }}</a>
-        <a href="#skills">{{ t('nav.skills') }}</a>
-        <a href="#projects">{{ t('nav.projects') }}</a>
-        <a href="#contact">{{ t('nav.contact') }}</a>
+        <a href="#about" :class="{ 'is-active': active === 'about' }" :aria-current="active === 'about' ? 'true' : undefined">{{ t('nav.about') }}</a>
+        <a href="#experience" :class="{ 'is-active': active === 'experience' }" :aria-current="active === 'experience' ? 'true' : undefined">{{ t('nav.experience') }}</a>
+        <a href="#skills" :class="{ 'is-active': active === 'skills' }" :aria-current="active === 'skills' ? 'true' : undefined">{{ t('nav.skills') }}</a>
+        <a href="#projects" :class="{ 'is-active': active === 'projects' }" :aria-current="active === 'projects' ? 'true' : undefined">{{ t('nav.projects') }}</a>
+        <a href="#contact" :class="{ 'is-active': active === 'contact' }" :aria-current="active === 'contact' ? 'true' : undefined">{{ t('nav.contact') }}</a>
+        <NuxtLink to="/cv" :class="{ 'router-link-active': isCv }">{{ t('nav.cv') }}</NuxtLink>
       </nav>
 
       <div class="header-actions">
@@ -90,9 +91,27 @@ const switchLocalePath = useSwitchLocalePath()
 
 const theme = ref<'light' | 'dark'>('light')
 
+// highlight the nav item of the section currently in view (home page only)
+const active = ref('')
+const route = useRoute()
+const isCv = computed(() => route.path === '/cv')
+
 onMounted(() => {
   theme.value =
     document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) active.value = entry.target.id
+      }
+    },
+    { rootMargin: '-40% 0px -55% 0px' },
+  )
+  for (const id of ['about', 'experience', 'skills', 'projects', 'contact']) {
+    const el = document.getElementById(id)
+    if (el) io.observe(el)
+  }
 })
 
 function toggleTheme() {
@@ -164,12 +183,34 @@ function toggleTheme() {
 }
 
 .site-nav a {
+  position: relative;
   color: var(--body);
 }
 
 .site-nav a:hover {
   color: var(--blue-600);
   text-decoration: none;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--grad);
+  opacity: 0;
+}
+
+.site-nav a.is-active,
+.site-nav a.router-link-active {
+  color: var(--ink);
+}
+
+.site-nav a.is-active::after,
+.site-nav a.router-link-active::after {
+  opacity: 1;
 }
 
 .header-actions {
