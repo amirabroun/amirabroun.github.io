@@ -23,7 +23,11 @@
 
       <footer class="site-footer">
         <span>{{ t('contact.footer_left') }}</span>
-        <span>{{ t('contact.footer_right') }}</span>
+        <span>
+          <NuxtLink :to="localePath('/now')">{{ t('now.title') }}</NuxtLink>
+          ·
+          {{ t('contact.footer_right') }}
+        </span>
       </footer>
     </div>
   </section>
@@ -31,6 +35,7 @@
 
 <script setup lang="ts">
 const { t } = useI18n()
+const localePath = useLocalePath()
 </script>
 
 <style scoped>

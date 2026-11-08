@@ -154,6 +154,18 @@
       }
     }
   },
+  "now": {
+    "eyebrow": "Now",
+    "title": "Now — November 2026",
+    "sub": "The /now page pattern — a quick look at what I'm working on these days.",
+    "items": [
+      "Writing Go — a REST API with Gin",
+      "MSc in Software Engineering — first-year student",
+      "kapsul: v2 with the Jalali calendar and printable day sheets is live",
+      "Sanjeman: the AI interviewer and job-board integrations"
+    ],
+    "updated": "Last updated: November 2026"
+  },
   "contact": {
     "eyebrow": "Contact",
     "heading": "Let's build something.",
