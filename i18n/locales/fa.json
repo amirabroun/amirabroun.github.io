@@ -128,33 +128,28 @@
   },
   "projects": {
     "heading": "چیزهایی که ساخته‌ام",
-    "featured_badge": "محل کار · پروداکشن",
-    "featured_title": "پلتفرم سنجمان",
-    "featured_desc": "پلتفرم جذب و استخدام در مقیاس بزرگ برای بازار ایران — APIهای لاراول، فرانت‌اندهای Nuxt 3، SSO، افزونهٔ مرورگر و زیرساخت پشت همهٔ این‌ها.",
+    "kapsul": {
+      "title": "کپسول",
+      "badge": "لایو · دامنهٔ خودم",
+      "desc": "اپلیکیشن پیگیری شارژ دوره‌ای کپسول‌های آتش‌نشانی — Nuxt 3 فول‌استک + D1 روی Cloudflare Workers؛ تقویم شمسی، برگهٔ کار چاپی و خروجی CSV. جواب سؤال “فردا چه کپسول‌هایی را باید شارژ کنم؟”"
+    },
     "items": {
-      "nuxt_blog": {
-        "title": "nuxt-blog",
-        "desc": "اپلیکیشن بلاگ با Nuxt — روتینگ، رندر سمت سرور و مدیریت محتوا."
+      "anbaritoys": {
+        "title": "عنبری‌تویز",
+        "badge": "در حال سرویس‌دهی",
+        "desc": "فروشگاه آنلاین واقعی با ۷۰۰+ محصول — بازسازی کامل، درگاه پرداخت، پیامک، Docker."
       },
-      "laravel_blog": {
-        "title": "laravel-blog",
-        "desc": "موتور بلاگ با لاراول — Eloquent، احراز هویت و پنل مدیریت."
-      },
-      "chat_app": {
-        "title": "chat-app",
-        "desc": "اپلیکیشن چت بلادرنگ."
+      "hermes_mini": {
+        "title": "hermes-mini",
+        "desc": "دستیار کارهای روزانه در تلگرام — Cloudflare Workers + D1 + Workers AI."
       },
       "gin": {
         "title": "gin",
-        "desc": "یادگیری Go با ساخت REST API با فریم‌ورک Gin."
+        "desc": "REST API با Go و Gin — مسیر یادگیری."
       },
       "redis_mysql": {
         "title": "redis-vs-mysql",
-        "desc": "مقایسهٔ کارایی Redis و MySQL روی ورک‌لودهای واقعی."
-      },
-      "php_container": {
-        "title": "php-container",
-        "desc": "محیط توسعهٔ PHP داکری‌شده."
+        "desc": "بنچمارک Redis در برابر MySQL روی ورک‌لودهای واقعی."
       }
     }
   },

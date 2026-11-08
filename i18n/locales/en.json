@@ -128,33 +128,28 @@
   },
   "projects": {
     "heading": "Things I've built",
-    "featured_badge": "Work · Production",
-    "featured_title": "Sanjeman Platform",
-    "featured_desc": "A large-scale recruitment platform serving the Iranian market — Laravel APIs, Nuxt 3 frontends, SSO, browser extensions and the infrastructure behind it.",
+    "kapsul": {
+      "title": "kapsul",
+      "badge": "Live · own domain",
+      "desc": "Fire-extinguisher recharge tracker — full-stack Nuxt 3 + D1 on Cloudflare Workers; Jalali calendar, printable day sheets, CSV export."
+    },
     "items": {
-      "nuxt_blog": {
-        "title": "nuxt-blog",
-        "desc": "Blog application built with Nuxt — routing, SSR and content handling."
+      "anbaritoys": {
+        "title": "Anbari Toys",
+        "badge": "In production",
+        "desc": "A real online store with 700+ products — full rebuild, payment gateway, SMS, Docker."
       },
-      "laravel_blog": {
-        "title": "laravel-blog",
-        "desc": "Blog engine in Laravel — Eloquent, auth and an admin area."
-      },
-      "chat_app": {
-        "title": "chat-app",
-        "desc": "Real-time chat application."
+      "hermes_mini": {
+        "title": "hermes-mini",
+        "desc": "Telegram assistant for daily tasks — Cloudflare Workers + D1 + Workers AI."
       },
       "gin": {
         "title": "gin",
-        "desc": "Learning Go by building REST APIs with the Gin framework."
+        "desc": "REST API in Go with Gin — learning path."
       },
       "redis_mysql": {
         "title": "redis-vs-mysql",
-        "desc": "Benchmarking Redis against MySQL across real workloads."
-      },
-      "php_container": {
-        "title": "php-container",
-        "desc": "Dockerized PHP development environment."
+        "desc": "Benchmarking Redis against MySQL on real workloads."
       }
     }
   },

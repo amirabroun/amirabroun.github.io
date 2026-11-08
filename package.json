@@ -21,6 +21,7 @@
     "nuxt": "^4.0.0"
   },
   "devDependencies": {
+    "puppeteer": "^25.16.0",
     "vue-tsc": "^2.2.0"
   }
 }
