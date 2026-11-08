@@ -8,6 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "typecheck": "nuxi typecheck",
+    "pdf": "node scripts/build-pdf.mjs",
     "postinstall": "nuxt prepare"
   },
   "engines": {

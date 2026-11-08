@@ -38,6 +38,9 @@ jobs:
 
       - run: npm run generate
 
+      # résumé PDF into the artifact — public URL /cv/amir-abroun.pdf
+      - run: node scripts/build-pdf.mjs
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
