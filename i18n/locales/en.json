@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Amir Abroun — Full-Stack Developer",
-    "description": "Amir Abroun — full-stack developer with 6+ years of experience. Laravel APIs, Vue & Nuxt frontends, Docker & CI/CD. Currently at Sanjeman.",
+    "description": "Amir Abroun — full-stack developer with 5+ years of experience. Laravel APIs, Vue & Nuxt frontends, Docker & CI/CD. Currently at Sanjeman.",
     "ogImageAlt": "Amir Abroun — full-stack developer: Laravel APIs, Vue & Nuxt frontends, Docker & CI/CD."
   },
   "name": "Amir Abroun",
@@ -179,6 +179,6 @@
     "linkedin": "LinkedIn",
     "site": "sanjeman.com",
     "footer_left": "© 2026 Amir Abroun",
-    "footer_right": "Built with Nuxt · Deployed on GitHub Pages"
+    "footer_right": "Built with Nuxt · Deployed on GitHub Pages · amirabroun.ir"
   }
 }

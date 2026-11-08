@@ -18,6 +18,9 @@
           <a class="btn btn-outline reveal" href="https://sanjeman.com/" target="_blank" rel="noopener">
             {{ t('contact.site') }}
           </a>
+          <NuxtLink class="btn btn-outline reveal" to="/cv">
+            {{ t('nav.cv') }}
+          </NuxtLink>
         </div>
       </div>
 
