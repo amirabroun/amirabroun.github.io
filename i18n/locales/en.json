@@ -14,15 +14,23 @@
   },
   "hero": {
     "status": "Open to new opportunities",
-    "eyebrow": "Full-Stack Developer",
-    "sub": "Laravel APIs on the backend, Vue & Nuxt on the frontend, and the Docker, Nginx & CI plumbing in between — I build web products end-to-end.",
+    "eyebrow": "Full-Stack Developer, Laravel at the core",
+    "sub": "For 5 years I've been building the core of Sanjeman, an HR SaaS platform — Laravel APIs, Vue/Nuxt frontends, and the CI/CD and servers underneath. I take features from idea to production on my own.",
     "meta_location": "Iran · open to remote",
-    "meta_experience": "6+ years of experience",
+    "meta_experience": "5+ years experience",
     "meta_company": "Building",
     "company_name": "Sanjeman",
-    "cta": "See my work",
+    "cta": "My work",
+    "resume": "Download résumé",
     "github": "GitHub",
-    "linkedin": "LinkedIn"
+    "linkedin": "LinkedIn",
+    "stats": {
+      "years": "years at Sanjeman",
+      "micro": "core microservices",
+      "tests": "Pest tests",
+      "resumes": "résumés/day",
+      "fraction": "5 of 11"
+    }
   },
   "about": {
     "heading": "A backend-heavy full-stack developer who ships",
