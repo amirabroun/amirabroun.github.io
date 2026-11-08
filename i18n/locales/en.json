@@ -6,7 +6,7 @@
   },
   "name": "Amir Abroun",
   "nav": {
-    "about": "About",
+    "about": "Snapshot",
     "experience": "Experience",
     "skills": "Skills",
     "projects": "Projects",
@@ -32,19 +32,19 @@
       "fraction": "5 of 11"
     }
   },
-  "about": {
-    "heading": "A backend-heavy full-stack developer who ships",
-    "p1": "I'm a full-stack developer with 6+ years of experience, based in Iran and comfortable anywhere in the stack — from database schemas and Laravel APIs to Nuxt frontends and the CI/CD pipeline that ships them.",
-    "p2": "These days I'm at Sanjeman, building the recruitment platform at sanjeman.com: a Laravel backend powering Nuxt 3 and Vue frontends, SSO, browser extensions and integrations with payments, SMS providers and job boards — plus the DevOps (Docker, Nginx, GitLab CI, GlitchTip error tracking) that keeps it all running in production.",
-    "p3": "When I'm not shipping features, I'm probably tuning Docker images, hunting errors in GlitchTip, or picking up Go.",
-    "facts": {
-      "location": { "label": "Location", "value": "Iran — open to remote" },
-      "experience": { "label": "Experience", "value": "6+ years" },
-      "role": { "label": "Current role", "value": "Software Engineer at Sanjeman" },
-      "education": { "label": "Education", "value": "B.Sc. Computer Engineering, Hakim Sabzevari University" },
-      "focus": { "label": "Focus", "value": "Laravel · Vue/Nuxt · DevOps" },
-      "learning": { "label": "Currently learning", "value": "Go" }
-    }
+  "snapshot": {
+    "heading": "The short version",
+    "now_title": "Now",
+    "now_body": "Learning Go, finishing my MSc, shipping kapsul v2.",
+    "role_title": "Role",
+    "role_body": "Software Engineer at Sanjeman — 3-person product team.",
+    "stack_title": "Core stack",
+    "education_title": "Education",
+    "education_body": "MSc Computer Engineering — Software, Azad University of Sabzevar (in progress) · BSc: Hakim Sabzevari University.",
+    "openness_title": "Status",
+    "openness_body": "Open to full-stack/backend roles — remote or on-site.",
+    "outside_title": "Outside code",
+    "outside_body": "I run a real online store with 700+ products — where a bug means a real customer notices."
   },
   "experience": {
     "heading": "Where I've been shipping",
