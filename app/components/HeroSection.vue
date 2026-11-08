@@ -94,18 +94,20 @@ const TW_LINES = [
   '$ docker compose up -d',
   '$ git push origin main',
 ]
-const twText = ref(TW_LINES[0])
+const FIRST_LINE = TW_LINES[0]!
+const twText = ref(FIRST_LINE)
 let twTimer: ReturnType<typeof setTimeout> | undefined
 
 onMounted(() => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
   let line = 0
-  let chars = TW_LINES[0].length
+  let chars = FIRST_LINE.length
   let deleting = true
   const step = () => {
+    const text = TW_LINES[line] ?? FIRST_LINE
     if (deleting) {
       chars--
-      twText.value = TW_LINES[line].slice(0, chars)
+      twText.value = text.slice(0, chars)
       if (chars === 0) {
         deleting = false
         line = (line + 1) % TW_LINES.length
@@ -115,8 +117,8 @@ onMounted(() => {
       twTimer = setTimeout(step, 30)
     } else {
       chars++
-      twText.value = TW_LINES[line].slice(0, chars)
-      if (chars === TW_LINES[line].length) {
+      twText.value = text.slice(0, chars)
+      if (chars === text.length) {
         deleting = true
         twTimer = setTimeout(step, 1800)
         return
