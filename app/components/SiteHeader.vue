@@ -12,6 +12,7 @@
         <a href="#skills">{{ t('nav.skills') }}</a>
         <a href="#projects">{{ t('nav.projects') }}</a>
         <a href="#contact">{{ t('nav.contact') }}</a>
+        <NuxtLink to="/cv">{{ t('nav.cv') }}</NuxtLink>
       </nav>
 
       <div class="header-actions">

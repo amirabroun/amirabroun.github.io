@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: ['/en', '/now'], // /cv joins in Task 10 when the page content exists
+      routes: ['/en', '/now', '/cv'],
     },
   },
   app: {

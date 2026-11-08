@@ -10,7 +10,8 @@
     "experience": "Experience",
     "skills": "Skills",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cv": "Résumé"
   },
   "hero": {
     "status": "Open to new opportunities",
@@ -165,6 +166,10 @@
       "Sanjeman: the AI interviewer and job-board integrations"
     ],
     "updated": "Last updated: November 2026"
+  },
+  "cv": {
+    "download": "Download PDF",
+    "print": "Print"
   },
   "contact": {
     "eyebrow": "Contact",
