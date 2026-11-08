@@ -51,13 +51,72 @@
     "company": "Sanjeman",
     "role": "Software Engineer",
     "present": "Present",
-    "bullets": [
-      "Build and evolve the core Laravel API platform behind sanjeman.com — a recruitment product serving the Iranian market.",
-      "Ship and maintain Nuxt 3 and Vue frontends: the main product, the admin panel and SSO flows.",
-      "Own DevOps end-to-end — Docker, Nginx, GitLab CI/CD pipelines and production MySQL & Redis.",
-      "Integrate external services: payment gateways, SMS providers and job-board partners.",
-      "Keep production healthy — GlitchTip/Sentry error triage, performance tuning and code review across the team."
-    ]
+    "sanjeman": {
+      "date": "Oct 2021 – Present",
+      "subline": "3-person product team · on 5 of 11 core microservices",
+      "tabs": [
+        {
+          "label": "AI Interviewer",
+          "bullets": [
+            "Built the AI interviewer from scratch: Laravel conversation & analysis backend, multi-dimensional scoring, interview reports",
+            "Vue UI with synchronized audio playback; pluggable into any LLM with an API"
+          ],
+          "metric": "~30% faster screening"
+        },
+        {
+          "label": "Psychometric tests",
+          "bullets": [
+            "Online testing platform with OTP guest login",
+            "Scoring engine that derives the scores of 11 tests from raw answers"
+          ],
+          "metric": "~300 monthly active users"
+        },
+        {
+          "label": "Integrations",
+          "bullets": [
+            "6 job boards and 7+ SMS panels behind a Strategy + Template Method pattern — new providers without touching existing code",
+            "On-premise compatible"
+          ],
+          "metric": "~500 résumés/day · ~1,000 jobs/day in Horizon"
+        },
+        {
+          "label": "SSO & payments",
+          "bullets": [
+            "Central SSO and OTP login as the auth hub for 4 frontends",
+            "Zarinpal payments (serialized checkout, race handling, discount codes) and a reseller panel with impersonation"
+          ]
+        },
+        {
+          "label": "Quality & DevOps",
+          "bullets": [
+            "800+ Pest tests, phpstan/rector and vue-tsc gates in CI, Playwright e2e",
+            "GlitchTip error tracking; self-managed Linux staging server (TLS, firewall)",
+            "Fixed N+1 and memory exhaustion in high-traffic services"
+          ]
+        }
+      ]
+    },
+    "anbaritoys": {
+      "company": "Anbari Toys",
+      "role": "Owner — solo rebuild & maintenance",
+      "date": "Oct 2025 – Present",
+      "bullets": [
+        "Took over an online store with 700+ products from the previous developer — unstable framework-less PHP 8.2 with no tests or docs — and rebuilt it: fixed the bugs, documented it, moved it to Git.",
+        "Run and extend the storefront and full admin panel (products, variants, categories, brands, coupons, blog) on MariaDB with hand-written SQL; Zarinpal & IDPay payments, Kavenegar SMS, customer accounts and order tracking.",
+        "Migrated hosting from shared cPanel/Apache to Docker (nginx + php-fpm)."
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "msc": "MSc Computer Engineering — Software, in progress",
+      "msc_note": "Azad University of Sabzevar · graduating 2029",
+      "bsc": "BSc Computer Engineering",
+      "bsc_note": "Hakim Sabzevari University · Oct 2020 – Feb 2026"
+    },
+    "language": {
+      "title": "Languages",
+      "english": "English"
+    }
   },
   "skills": {
     "heading": "The toolbox",
