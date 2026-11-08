@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amirabroun.github.io/sitemap.xml
+Sitemap: https://amirabroun.ir/sitemap.xml

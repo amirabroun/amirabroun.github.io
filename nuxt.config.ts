@@ -4,22 +4,22 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/i18n'],
   css: ['~/assets/css/main.css'],
   i18n: {
-    baseUrl: 'https://amirabroun.github.io',
-    defaultLocale: 'en',
+    baseUrl: 'https://amirabroun.ir',
+    defaultLocale: 'fa',
     strategy: 'prefix_except_default',
     locales: [
-      { code: 'en', language: 'en', name: 'English', file: 'en.json', dir: 'ltr' },
       { code: 'fa', language: 'fa', name: 'فارسی', file: 'fa.json', dir: 'rtl' },
+      { code: 'en', language: 'en', name: 'English', file: 'en.json', dir: 'ltr' },
     ],
   },
   nitro: {
     prerender: {
-      routes: ['/fa'],
+      routes: ['/en'], // /now (Task 9) and /cv (Task 10) join when their pages exist
     },
   },
   app: {
     head: {
-      htmlAttrs: { lang: 'en' },
+      htmlAttrs: { lang: 'fa' },
       script: [
         {
           // set theme before first paint to avoid a flash of the wrong theme
