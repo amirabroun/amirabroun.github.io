@@ -26,6 +26,7 @@
   --color-accent: var(--blue-600);
   --color-accent-strong: var(--blue-700);
   --color-accent-soft: var(--blue-50);
+  --color-on-accent: var(--on-accent);
   --color-ok: var(--green);
   --color-ok-bg: var(--ok-bg);
   --color-ok-border: var(--ok-border);
@@ -59,6 +60,9 @@
   --blue-100: #dbeafe;
   --blue-200: #bfdbfe;
   --green: #16a34a;
+
+  /* text on solid accent fills — dark accent is light, so it flips to navy */
+  --on-accent: #ffffff;
 
   --ok-bg: #f0fdf4;
   --ok-border: #bbf7d0;
@@ -113,6 +117,8 @@ html[lang="fa"] * {
   --blue-100: #223d66;
   --blue-200: #33568d;
   --green: #22c55e;
+
+  --on-accent: #0a1322;
 
   --ok-bg: rgba(34, 197, 94, 0.1);
   --ok-border: rgba(74, 222, 128, 0.35);
@@ -185,24 +191,28 @@ body::before {
   background: var(--blue-200);
 }
 
-a {
-  color: var(--blue-600);
-  text-decoration: none;
-}
+/* base layer, NOT unlayered: unlayered rules beat Tailwind utilities, which
+   stripped text-white/text-ink off every <a> and hid the CTA label */
+@layer base {
+  a {
+    color: var(--blue-600);
+    text-decoration: none;
+  }
 
-a:hover {
-  text-decoration: underline;
-}
+  a:hover {
+    text-decoration: underline;
+  }
 
-a,
-button {
-  cursor: pointer;
-}
+  a,
+  button {
+    cursor: pointer;
+  }
 
-:focus-visible {
-  outline: 2px solid var(--blue-500);
-  outline-offset: 3px;
-  border-radius: 4px;
+  :focus-visible {
+    outline: 2px solid var(--blue-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 }
 
 svg {
@@ -295,6 +305,7 @@ section {
     --blue-100: #dbeafe;
     --blue-200: #bfdbfe;
     --green: #16a34a;
+    --on-accent: #ffffff;
     --ok-bg: #f0fdf4;
     --ok-border: #bbf7d0;
     --ok-text: #15803d;

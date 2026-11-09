@@ -9,6 +9,7 @@
     "preview": "nuxt preview",
     "typecheck": "nuxi typecheck",
     "pdf": "node scripts/build-pdf.mjs",
+    "shot": "node scripts/shot-matrix.mjs",
     "postinstall": "nuxt prepare"
   },
   "engines": {

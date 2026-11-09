@@ -25,16 +25,13 @@ jobs:
           node-version: 22
           cache: npm
 
-      # Chrome binary for puppeteer (screenshot + PDF) — cached between runs
+      # Chrome binary for puppeteer (PDF) — cached between runs
       - uses: actions/cache@v4
         with:
           path: ~/.cache/puppeteer
           key: puppeteer-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
       - run: npm ci
-
-      # best-effort screenshot for the featured card; exits 0 on failure
-      - run: node scripts/screenshot-kapsul.mjs
 
       - run: npm run generate
 

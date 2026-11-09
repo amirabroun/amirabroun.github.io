@@ -47,7 +47,7 @@
 
       <div class="mt-9 flex flex-wrap justify-center gap-3.5 stagger">
         <a
-          class="inline-flex items-center gap-2.5 rounded-full bg-accent px-5.5 py-3 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-accent-strong hover:no-underline"
+          class="inline-flex items-center gap-2.5 rounded-full bg-accent px-5.5 py-3 text-sm font-semibold text-on-accent shadow-md transition hover:-translate-y-0.5 hover:bg-accent-strong hover:no-underline"
           href="#experience"
         >
           {{ t('hero.cta') }}
