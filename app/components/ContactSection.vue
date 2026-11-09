@@ -22,7 +22,7 @@
           </a>
           <button
             type="button"
-            class="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 font-mono text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-accent-strong"
+            class="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 font-mono text-sm font-semibold text-on-accent transition hover:-translate-y-0.5 hover:bg-accent-strong"
             :aria-label="t('contact.copy_email')"
             @click="copyEmail"
           >

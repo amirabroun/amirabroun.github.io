@@ -123,16 +123,15 @@
   "projects": {
     "heading": "Side projects",
     "cloudflare": "kapsul and hermes-mini run on Cloudflare — Workers, D1 and Workers AI.",
-    "kapsul": {
-      "title": "kapsul",
-      "badge": "Live · own domain",
-      "desc": "Fire-extinguisher recharge tracker — full-stack Nuxt 3 + D1 on Cloudflare Workers; Jalali calendar, printable day sheets, CSV export."
-    },
     "items": {
       "anbaritoys": {
         "title": "Anbari Toys",
         "badge": "In production",
         "desc": "Owner & developer — full rebuild of a 700+ product online store; payments, SMS, Docker."
+      },
+      "kapsul": {
+        "title": "kapsul",
+        "desc": "Fire-extinguisher recharge tracker — Nuxt 3 + D1 on Cloudflare Workers; Jalali calendar, CSV export."
       },
       "hermes_mini": {
         "title": "hermes-mini",
@@ -155,7 +154,6 @@
     "items": [
       "Writing Go — a REST API with Gin",
       "MSc in Software Engineering — first-year student",
-      "kapsul: v2 with the Jalali calendar and printable day sheets is live",
       "Sanjeman: the AI interviewer and job-board integrations"
     ],
     "updated": "Last updated: November 2026"
