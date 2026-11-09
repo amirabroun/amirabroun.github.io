@@ -6,6 +6,13 @@
         <h2>{{ t('experience.heading') }}</h2>
       </div>
 
+      <ul class="sanj-band reveal" role="list">
+        <li class="card"><StatCounter :value="30" prefix="~" :suffix="pct" :label="t('experience.band.screening')" /></li>
+        <li class="card"><StatCounter :value="300" suffix="+" :label="t('experience.band.users')" /></li>
+        <li class="card"><StatCounter :value="1000" prefix="~" :label="t('experience.band.jobs')" /></li>
+        <li class="card"><StatCounter :value="4" :label="t('experience.band.frontends')" /></li>
+      </ul>
+
       <article class="card xp reveal">
         <div class="xp-head">
           <span class="xp-logo" aria-hidden="true">S</span>
@@ -70,35 +77,6 @@
         </div>
       </article>
 
-      <article class="card xp reveal">
-        <div class="xp-head">
-          <span class="xp-logo xp-logo-toys" aria-hidden="true">ع</span>
-          <div class="xp-id">
-            <h3>
-              <a href="https://anbaritoys.ir/" target="_blank" rel="noopener">
-                {{ t('experience.anbaritoys.company') }}
-                <IconExternal />
-              </a>
-            </h3>
-            <p class="xp-role">{{ t('experience.anbaritoys.role') }}</p>
-          </div>
-          <span class="chip chip-now">{{ t('experience.present') }}</span>
-        </div>
-
-        <p class="xp-subline">{{ t('experience.anbaritoys.date') }}</p>
-
-        <ul class="xp-list">
-          <li v-for="b in anbaritoysBullets" :key="b">{{ b }}</li>
-        </ul>
-
-        <div class="xp-stack">
-          <span class="chip">PHP 8.2</span>
-          <span class="chip">MariaDB</span>
-          <span class="chip">Docker</span>
-          <span class="chip">nginx</span>
-        </div>
-      </article>
-
       <div class="edu-grid stagger">
         <div class="card edu reveal">
           <h3>{{ t('experience.education.title') }}</h3>
@@ -134,9 +112,7 @@ const tabs = computed<Tab[]>(() =>
   }),
 )
 
-const anbaritoysBullets = computed(() =>
-  (tm('experience.anbaritoys.bullets') as unknown[]).map((b) => rtv(b)),
-)
+const pct = computed(() => (locale.value === 'fa' ? '٪' : '%'))
 
 const activeTab = ref(0)
 
@@ -164,8 +140,17 @@ function onTabKeydown(e: KeyboardEvent) {
   padding: 30px 32px;
 }
 
-.xp + .xp {
-  margin-top: 20px;
+.sanj-band {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.sanj-band li {
+  padding: 18px 14px;
 }
 
 .xp-head {
@@ -188,10 +173,6 @@ function onTabKeydown(e: KeyboardEvent) {
   font-weight: 700;
   font-size: 1.35rem;
   box-shadow: var(--shadow-md);
-}
-
-.xp-logo-toys {
-  background: linear-gradient(135deg, #db2777 0%, #f59e0b 100%);
 }
 
 .xp-id h3 {
@@ -378,6 +359,10 @@ function onTabKeydown(e: KeyboardEvent) {
 @media (max-width: 640px) {
   .xp {
     padding: 24px;
+  }
+
+  .sanj-band {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .chip-now {

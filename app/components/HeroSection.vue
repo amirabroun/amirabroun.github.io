@@ -52,7 +52,7 @@
       </ul>
 
       <div class="hero-cta stagger">
-        <a class="btn btn-primary reveal" href="#projects">
+        <a class="btn btn-primary reveal" href="#experience">
           {{ t('hero.cta') }}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>

@@ -6,6 +6,8 @@
         <h2>{{ t('projects.heading') }}</h2>
       </div>
 
+      <p class="cf-line reveal">{{ t('projects.cloudflare') }}</p>
+
       <div class="projects-grid stagger">
         <!-- tier 1 — live product on own domain -->
         <article class="card featured reveal">
@@ -36,31 +38,17 @@
           >
         </article>
 
-        <!-- tier 2 — production store, wide -->
-        <article class="card project project-wide reveal">
+        <!-- tier 2 — compact -->
+        <article v-for="p in projects" :key="p.key" class="card project reveal">
           <div class="featured-head">
             <h3>
-              <a href="https://anbaritoys.ir/" target="_blank" rel="noopener">
-                {{ t('projects.items.anbaritoys.title') }}
+              <a :href="p.url" target="_blank" rel="noopener">
+                {{ t(`projects.items.${p.key}.title`) }}
                 <IconExternal />
               </a>
             </h3>
-            <span class="chip chip-work">{{ t('projects.items.anbaritoys.badge') }}</span>
+            <span v-if="p.badge" class="chip chip-work">{{ t(`projects.items.${p.key}.badge`) }}</span>
           </div>
-          <p>{{ t('projects.items.anbaritoys.desc') }}</p>
-          <div class="chips">
-            <span v-for="c in anbaritoysChips" :key="c" class="chip">{{ c }}</span>
-          </div>
-        </article>
-
-        <!-- tier 3 — compact -->
-        <article v-for="p in projects" :key="p.key" class="card project reveal">
-          <h3>
-            <a :href="p.url" target="_blank" rel="noopener">
-              {{ t(`projects.items.${p.key}.title`) }}
-              <IconExternal />
-            </a>
-          </h3>
           <p>{{ t(`projects.items.${p.key}.desc`) }}</p>
           <div class="chips">
             <span v-for="c in p.chips" :key="c" class="chip">{{ c }}</span>
@@ -76,9 +64,14 @@ const { t } = useI18n()
 const shotFailed = ref(false)
 
 const kapsulChips = ['Nuxt 3', 'TypeScript', 'Cloudflare Workers', 'D1', 'Tailwind v4']
-const anbaritoysChips = ['PHP 8.2', 'MariaDB', 'Docker', 'Zarinpal']
 
-const projects = [
+const projects: { key: string; url: string; badge?: boolean; chips: string[] }[] = [
+  {
+    key: 'anbaritoys',
+    url: 'https://anbaritoys.ir/',
+    badge: true,
+    chips: ['PHP 8.2', 'MariaDB', 'Docker', 'Zarinpal'],
+  },
   {
     key: 'hermes_mini',
     url: 'https://github.com/amirabroun/hermes-mini',
@@ -98,9 +91,16 @@ const projects = [
 </script>
 
 <style scoped>
+.cf-line {
+  margin: -14px 0 26px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -179,10 +179,6 @@ const projects = [
   gap: 10px;
 }
 
-.project-wide {
-  grid-column: span 2;
-}
-
 .project h3 {
   margin: 0;
   font-family: var(--font-display);
@@ -234,10 +230,6 @@ const projects = [
 
   .featured {
     padding: 24px;
-  }
-
-  .project-wide {
-    grid-column: auto;
   }
 }
 </style>
