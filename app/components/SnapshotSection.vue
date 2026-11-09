@@ -7,7 +7,7 @@
       </div>
 
       <div class="bento stagger">
-        <NuxtLink :to="localePath('/now')" class="bento-card card span-2 reveal">
+        <NuxtLink :to="localePath('/now')" class="bento-card card reveal">
           <span class="bento-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span>
           <div>
             <h3>{{ t('snapshot.now_title') }}</h3>
@@ -38,27 +38,11 @@
           </div>
         </div>
 
-        <div class="bento-card card span-2 reveal">
-          <span class="bento-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span>
-          <div>
-            <h3>{{ t('snapshot.education_title') }}</h3>
-            <p>{{ t('snapshot.education_body') }}</p>
-          </div>
-        </div>
-
         <div class="bento-card card reveal">
           <span class="bento-icon" aria-hidden="true"><span class="status-dot" /></span>
           <div>
             <h3>{{ t('snapshot.openness_title') }}</h3>
             <p>{{ t('snapshot.openness_body') }}</p>
-          </div>
-        </div>
-
-        <div class="bento-card card reveal">
-          <span class="bento-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.02-1.6A14 14 0 0 1 22 8v0a10 10 0 0 1-14.96-.43L2 7"/><path d="M2 12a10 10 0 0 1 4.65-3.87"/><path d="M2 17a10 10 0 0 1 5.03-4.37"/><path d="M2 22a12 12 0 0 1 5.62-5"/></svg></span>
-          <div>
-            <h3>{{ t('snapshot.outside_title') }}</h3>
-            <p>{{ t('snapshot.outside_body') }}</p>
           </div>
         </div>
       </div>
@@ -74,12 +58,8 @@ const localePath = useLocalePath()
 <style scoped>
 .bento {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-}
-
-.span-2 {
-  grid-column: span 2;
 }
 
 .bento-card {
@@ -150,10 +130,6 @@ const localePath = useLocalePath()
 @media (max-width: 880px) {
   .bento {
     grid-template-columns: 1fr;
-  }
-
-  .span-2 {
-    grid-column: auto;
   }
 }
 </style>
