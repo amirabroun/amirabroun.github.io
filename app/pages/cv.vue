@@ -1,11 +1,11 @@
 <template>
-  <main class="cv-page">
-    <div class="cv-actions">
-      <a class="btn btn-primary" href="/cv/amir-abroun.pdf">
+  <main class="pt-30 pb-18 print:pt-0 print:pb-0">
+    <div class="mb-6.5 flex justify-center gap-3.5 print:hidden">
+      <a class="inline-flex items-center gap-2.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-accent-strong hover:no-underline" href="/cv/amir-abroun.pdf">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
         {{ t('cv.download') }}
       </a>
-      <button type="button" class="btn btn-ghost" @click="printCv">
+      <button type="button" class="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-accent hover:text-accent" @click="printCv">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
         {{ t('cv.print') }}
       </button>
@@ -142,17 +142,6 @@ useHead({ title: 'رزومه — امیر آبرون' })
 </style>
 
 <style scoped>
-.cv-page {
-  padding: 120px 0 72px;
-}
-
-.cv-actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 26px;
-}
-
 /* the paper — v5 palette, forced light in both themes */
 .cv-paper {
   width: min(820px, 100%);
@@ -390,14 +379,6 @@ useHead({ title: 'رزومه — امیر آبرون' })
 }
 
 @media print {
-  .cv-actions {
-    display: none;
-  }
-
-  .cv-page {
-    padding: 0;
-  }
-
   .cv-paper {
     width: auto;
     margin: 0;

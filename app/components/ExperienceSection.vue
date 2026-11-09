@@ -1,44 +1,41 @@
 <template>
-  <section id="experience">
+  <section id="experience" class="py-22">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">{{ t('nav.experience') }}</p>
-        <h2>{{ t('experience.heading') }}</h2>
-      </div>
+      <SectionHead num="02" :title="t('experience.heading')" />
 
-      <ul class="sanj-band reveal" role="list">
-        <li class="card"><StatCounter :value="30" prefix="~" :suffix="pct" :label="t('experience.band.screening')" /></li>
-        <li class="card"><StatCounter :value="300" suffix="+" :label="t('experience.band.users')" /></li>
-        <li class="card"><StatCounter :value="1000" prefix="~" :label="t('experience.band.jobs')" /></li>
-        <li class="card"><StatCounter :value="4" :label="t('experience.band.frontends')" /></li>
+      <ul class="mb-5 grid grid-cols-2 gap-3.5 reveal sm:grid-cols-4" role="list">
+        <li class="rounded-lg border border-line bg-card px-3.5 py-4"><StatCounter :value="30" prefix="~" :suffix="pct" :label="t('experience.band.screening')" /></li>
+        <li class="rounded-lg border border-line bg-card px-3.5 py-4"><StatCounter :value="300" suffix="+" :label="t('experience.band.users')" /></li>
+        <li class="rounded-lg border border-line bg-card px-3.5 py-4"><StatCounter :value="1000" prefix="~" :label="t('experience.band.jobs')" /></li>
+        <li class="rounded-lg border border-line bg-card px-3.5 py-4"><StatCounter :value="4" :label="t('experience.band.frontends')" /></li>
       </ul>
 
-      <article class="card xp reveal">
-        <div class="xp-head">
-          <span class="xp-logo" aria-hidden="true">S</span>
-          <div class="xp-id">
-            <h3>
-              <a href="https://sanjeman.com/" target="_blank" rel="noopener">
+      <article class="rounded-xl border border-line bg-card p-6 reveal sm:p-8">
+        <div class="mb-2 flex flex-wrap items-center gap-4">
+          <span class="grid size-13 place-items-center rounded-xl bg-[image:var(--grad)] font-display text-xl font-bold text-white" aria-hidden="true">S</span>
+          <div>
+            <h3 class="font-display text-xl tracking-tight">
+              <a href="https://sanjeman.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-ink hover:text-accent hover:no-underline">
                 {{ t('experience.company') }}
                 <IconExternal />
               </a>
             </h3>
-            <p class="xp-role">{{ t('experience.role') }}</p>
+            <p class="mt-0.5 text-sm text-muted">{{ t('experience.role') }}</p>
           </div>
-          <span class="chip chip-now">{{ t('experience.present') }}</span>
+          <span class="ms-auto rounded-full border border-ok-border bg-ok-bg px-3.5 py-1 font-mono text-xs font-medium text-ok-text max-sm:ms-0">{{ t('experience.present') }}</span>
         </div>
 
-        <p class="xp-subline">{{ t('experience.sanjeman.date') }} · {{ t('experience.sanjeman.subline') }}</p>
+        <p class="mb-5 font-mono text-xs text-muted">{{ t('experience.sanjeman.date') }} · {{ t('experience.sanjeman.subline') }}</p>
 
-        <div class="tabs" role="tablist" :aria-label="t('experience.heading')">
+        <div class="flex flex-wrap gap-x-2.5 gap-y-1 border-b border-line" role="tablist" :aria-label="t('experience.heading')">
           <button
             v-for="(tab, i) in tabs"
             :id="`sanjeman-tab-${i}`"
             :key="tab.label"
             role="tab"
             type="button"
-            class="tab-btn"
-            :class="{ 'is-active': i === activeTab }"
+            class="tab-btn relative px-3 py-2.5 text-sm font-semibold transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:rounded-full after:bg-[image:var(--grad)] after:opacity-0"
+            :class="i === activeTab ? 'text-ink after:opacity-100' : 'text-muted hover:text-ink'"
             :aria-selected="i === activeTab"
             :aria-controls="`sanjeman-panel-${i}`"
             :tabindex="i === activeTab ? 0 : -1"
@@ -55,39 +52,32 @@
           :key="tab.label"
           v-show="i === activeTab"
           role="tabpanel"
-          class="tab-panel"
+          class="motion-safe:animate-[fade-up_0.25s_ease]"
           :aria-labelledby="`sanjeman-tab-${i}`"
         >
-          <ul class="xp-list">
-            <li v-for="b in tab.bullets" :key="b">{{ b }}</li>
+          <ul class="mb-5 mt-5 grid list-none gap-3.5 p-0">
+            <li v-for="b in tab.bullets" :key="b" class="relative ps-6 text-[0.98rem] before:absolute before:start-0 before:top-[0.55em] before:size-2 before:rounded-full before:bg-accent">{{ b }}</li>
           </ul>
-          <span v-if="tab.metric" class="chip chip-metric">{{ tab.metric }}</span>
+          <span v-if="tab.metric" class="inline-block rounded-full border border-ok-border bg-ok-bg px-3.5 py-1 font-mono text-xs font-semibold text-ok-text">{{ tab.metric }}</span>
         </div>
 
-        <div class="xp-stack">
-          <span class="chip">Laravel</span>
-          <span class="chip">Nuxt 3</span>
-          <span class="chip">Vue</span>
-          <span class="chip">MySQL</span>
-          <span class="chip">Redis</span>
-          <span class="chip">Docker</span>
-          <span class="chip">Nginx</span>
-          <span class="chip">GitLab CI</span>
-          <span class="chip">GlitchTip</span>
-        </div>
+        <p class="mt-6 border-t border-line pt-5 font-mono text-sm text-muted">Laravel · Nuxt 3 · Vue · MySQL · Redis · Docker · Nginx · GitLab CI · GlitchTip</p>
       </article>
 
-      <div class="edu-grid stagger">
-        <div class="card edu reveal">
-          <h3>{{ t('experience.education.title') }}</h3>
-          <div class="edu-deg">{{ t('experience.education.msc') }}</div>
-          <p class="edu-note">{{ t('experience.education.msc_note') }}</p>
-          <div class="edu-deg">{{ t('experience.education.bsc') }}</div>
-          <p class="edu-note">{{ t('experience.education.bsc_note') }}</p>
+      <div class="mt-5 grid gap-5 stagger lg:grid-cols-[1.55fr_1fr]">
+        <div class="rounded-xl border border-line bg-card p-6 reveal">
+          <h3 class="mb-3 font-display font-semibold text-ink">{{ t('experience.education.title') }}</h3>
+          <div class="text-sm font-semibold text-ink">{{ t('experience.education.msc') }}</div>
+          <p class="mt-0.5 text-sm text-muted">{{ t('experience.education.msc_note') }}</p>
+          <div class="mt-3.5 text-sm font-semibold text-ink">{{ t('experience.education.bsc') }}</div>
+          <p class="mt-0.5 text-sm text-muted">{{ t('experience.education.bsc_note') }}</p>
         </div>
-        <div class="card edu reveal">
-          <h3>{{ t('experience.language.title') }}</h3>
-          <div class="lang-row"><span>{{ t('experience.language.english') }}</span><span class="lang-level">B1</span></div>
+        <div class="rounded-xl border border-line bg-card p-6 reveal">
+          <h3 class="mb-3 font-display font-semibold text-ink">{{ t('experience.language.title') }}</h3>
+          <div class="flex items-center justify-between text-sm">
+            <span>{{ t('experience.language.english') }}</span>
+            <span class="font-mono font-bold text-accent">B1</span>
+          </div>
         </div>
       </div>
     </div>
@@ -134,243 +124,3 @@ function onTabKeydown(e: KeyboardEvent) {
   }
 }
 </script>
-
-<style scoped>
-.xp {
-  padding: 30px 32px;
-}
-
-.sanj-band {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  padding: 0;
-  margin: 0 0 20px;
-}
-
-.sanj-band li {
-  padding: 18px 14px;
-}
-
-.xp-head {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-
-.xp-logo {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--grad);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.35rem;
-  box-shadow: var(--shadow-md);
-}
-
-.xp-id h3 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  letter-spacing: -0.01em;
-}
-
-.xp-id h3 a {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  color: var(--ink);
-}
-
-.xp-id h3 a:hover {
-  color: var(--blue-600);
-  text-decoration: none;
-}
-
-.xp-role {
-  margin: 2px 0 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
-.xp-subline {
-  margin: 0 0 20px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.chip-now {
-  margin-inline-start: auto;
-  background: var(--ok-bg);
-  border-color: var(--ok-border);
-  color: var(--ok-text);
-}
-
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 10px;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 20px;
-}
-
-.tab-btn {
-  appearance: none;
-  background: none;
-  border: none;
-  position: relative;
-  padding: 9px 12px;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--muted);
-  transition: color 0.2s ease;
-}
-
-.tab-btn::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--grad);
-  opacity: 0;
-}
-
-.tab-btn:hover {
-  color: var(--ink);
-}
-
-.tab-btn.is-active {
-  color: var(--ink);
-}
-
-.tab-btn.is-active::after {
-  opacity: 1;
-}
-
-.tab-panel {
-  animation: panel-fade 0.25s ease;
-}
-
-@keyframes panel-fade {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.chip-metric {
-  background: var(--ok-bg);
-  border-color: var(--ok-border);
-  color: var(--ok-text);
-  font-weight: 600;
-}
-
-.xp-list {
-  list-style: none;
-  margin: 0 0 20px;
-  padding: 0;
-  display: grid;
-  gap: 13px;
-}
-
-.xp-list li {
-  position: relative;
-  padding-inline-start: 26px;
-  font-size: 0.98rem;
-}
-
-.xp-list li::before {
-  content: "";
-  position: absolute;
-  inset-inline-start: 0;
-  top: 0.55em;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--grad);
-}
-
-.xp-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.edu-grid {
-  display: grid;
-  grid-template-columns: 1.55fr 1fr;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.edu {
-  padding: 22px 26px;
-}
-
-.edu h3 {
-  margin: 0 0 12px;
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.edu-deg {
-  font-weight: 600;
-  color: var(--ink);
-  font-size: 0.95rem;
-}
-
-.edu-deg + .edu-deg {
-  margin-top: 10px;
-}
-
-.edu-note {
-  margin: 2px 0 0;
-  color: var(--muted);
-  font-size: 0.86rem;
-}
-
-.lang-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.95rem;
-}
-
-.lang-level {
-  color: var(--blue-600);
-  font-weight: 700;
-}
-
-@media (max-width: 640px) {
-  .xp {
-    padding: 24px;
-  }
-
-  .sanj-band {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .chip-now {
-    margin-inline-start: 0;
-  }
-
-  .edu-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
