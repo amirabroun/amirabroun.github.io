@@ -1,34 +1,29 @@
 <template>
-  <section id="projects">
+  <section id="projects" class="py-22">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">{{ t('nav.projects') }}</p>
-        <h2>{{ t('projects.heading') }}</h2>
-      </div>
+      <SectionHead num="04" :title="t('projects.heading')" />
 
-      <p class="cf-line reveal">{{ t('projects.cloudflare') }}</p>
+      <p class="-mt-4 mb-6 text-center font-mono text-xs text-muted reveal">{{ t('projects.cloudflare') }}</p>
 
-      <div class="projects-grid stagger">
+      <div class="grid gap-5 stagger sm:grid-cols-2">
         <!-- tier 1 — live product on own domain -->
-        <article class="card featured reveal">
-          <div class="featured-body">
-            <div class="featured-head">
-              <h3>
-                <a href="https://kapsul.amirabroun.ir" target="_blank" rel="noopener">
+        <article class="relative grid gap-7 overflow-hidden rounded-xl border border-line bg-card p-7 before:absolute before:start-0 before:top-0 before:bottom-0 before:w-1 before:bg-[image:var(--grad)] reveal sm:col-span-2 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+          <div>
+            <div class="mb-2 flex flex-wrap items-center gap-3.5">
+              <h3 class="font-display text-[1.3rem] tracking-tight">
+                <a href="https://kapsul.amirabroun.ir" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-ink hover:text-accent hover:no-underline">
                   {{ t('projects.kapsul.title') }}
                   <IconExternal />
                 </a>
               </h3>
-              <span class="chip chip-work">{{ t('projects.kapsul.badge') }}</span>
+              <span class="rounded-full border border-ok-border bg-ok-bg px-3.5 py-1 font-mono text-xs font-medium text-ok-text">{{ t('projects.kapsul.badge') }}</span>
             </div>
-            <p>{{ t('projects.kapsul.desc') }}</p>
-            <div class="chips">
-              <span v-for="c in kapsulChips" :key="c" class="chip">{{ c }}</span>
-            </div>
+            <p class="mb-4 text-[0.98rem]">{{ t('projects.kapsul.desc') }}</p>
+            <p class="font-mono text-sm text-muted">{{ kapsulChips.join(' · ') }}</p>
           </div>
           <img
             v-if="!shotFailed"
-            class="featured-shot"
+            class="w-full rounded-md border border-line"
             src="/img/kapsul.png"
             width="640"
             height="400"
@@ -39,20 +34,18 @@
         </article>
 
         <!-- tier 2 — compact -->
-        <article v-for="p in projects" :key="p.key" class="card project reveal">
-          <div class="featured-head">
-            <h3>
-              <a :href="p.url" target="_blank" rel="noopener">
+        <article v-for="p in projects" :key="p.key" class="flex flex-col gap-2.5 rounded-lg border border-line bg-card p-6 reveal">
+          <div class="flex flex-wrap items-center gap-3">
+            <h3 class="font-display font-semibold">
+              <a :href="p.url" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-ink hover:text-accent hover:no-underline">
                 {{ t(`projects.items.${p.key}.title`) }}
                 <IconExternal />
               </a>
             </h3>
-            <span v-if="p.badge" class="chip chip-work">{{ t(`projects.items.${p.key}.badge`) }}</span>
+            <span v-if="p.badge" class="rounded-full border border-ok-border bg-ok-bg px-3 py-0.5 font-mono text-xs text-ok-text">{{ t(`projects.items.${p.key}.badge`) }}</span>
           </div>
-          <p>{{ t(`projects.items.${p.key}.desc`) }}</p>
-          <div class="chips">
-            <span v-for="c in p.chips" :key="c" class="chip">{{ c }}</span>
-          </div>
+          <p class="flex-1 text-sm">{{ t(`projects.items.${p.key}.desc`) }}</p>
+          <p class="mt-1 font-mono text-xs text-muted">{{ p.chips.join(' · ') }}</p>
         </article>
       </div>
     </div>
@@ -89,147 +82,3 @@ const projects: { key: string; url: string; badge?: boolean; chips: string[] }[]
   },
 ]
 </script>
-
-<style scoped>
-.cf-line {
-  margin: -14px 0 26px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.featured {
-  grid-column: 1 / -1;
-  position: relative;
-  overflow: hidden;
-  padding: 28px 32px;
-  border-color: var(--blue-200);
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 26px;
-  align-items: center;
-}
-
-.featured::before {
-  content: "";
-  position: absolute;
-  inset-inline-start: 0;
-  top: 0;
-  bottom: 0;
-  width: 5px;
-  background: var(--grad);
-}
-
-.featured-head {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-
-.featured h3 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  letter-spacing: -0.01em;
-}
-
-.featured h3 a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--ink);
-}
-
-.featured h3 a:hover {
-  color: var(--blue-600);
-  text-decoration: none;
-}
-
-.chip-work {
-  background: var(--ok-bg);
-  border-color: var(--ok-border);
-  color: var(--ok-text);
-}
-
-.featured-body p {
-  margin: 0 0 16px;
-  font-size: 0.98rem;
-}
-
-.featured-shot {
-  display: block;
-  width: 100%;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
-}
-
-.project {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.project h3 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.02rem;
-}
-
-.project h3 a {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  color: var(--ink);
-}
-
-.project h3 a:hover {
-  color: var(--blue-600);
-  text-decoration: none;
-}
-
-.project p {
-  margin: 0;
-  font-size: 0.9rem;
-  flex: 1;
-}
-
-.project .chips {
-  margin-top: 2px;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-@media (max-width: 960px) {
-  .featured {
-    grid-template-columns: 1fr;
-  }
-
-  .featured-shot {
-    order: -1;
-  }
-}
-
-@media (max-width: 640px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .featured {
-    padding: 24px;
-  }
-}
-</style>

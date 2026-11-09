@@ -1,24 +1,34 @@
 <template>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="logo" aria-label="Amir Abroun — back to top">
-        <span class="logo-mark" aria-hidden="true">AA</span>
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-line bg-header backdrop-blur-md print:hidden">
+    <!-- scroll progress -->
+    <div
+      aria-hidden="true"
+      class="absolute inset-x-0 top-0 h-0.5 origin-start bg-[image:var(--grad)]"
+      :style="{ transform: `scaleX(${progress})` }"
+    ></div>
+
+    <div class="container flex h-16 items-center gap-5">
+      <a href="#top" class="inline-flex items-center gap-2.5 font-display text-base font-semibold tracking-tight text-ink hover:text-accent-strong hover:no-underline" aria-label="Amir Abroun — back to top">
+        <span class="grid size-8 place-items-center rounded-md bg-[image:var(--grad)] text-xs font-bold text-white" aria-hidden="true">AA</span>
         <span>{{ t('name') }}</span>
       </a>
 
-      <nav class="site-nav" aria-label="Sections">
-        <a href="#about" :class="{ 'is-active': active === 'about' }" :aria-current="active === 'about' ? 'true' : undefined">{{ t('nav.about') }}</a>
-        <a href="#experience" :class="{ 'is-active': active === 'experience' }" :aria-current="active === 'experience' ? 'true' : undefined">{{ t('nav.experience') }}</a>
-        <a href="#skills" :class="{ 'is-active': active === 'skills' }" :aria-current="active === 'skills' ? 'true' : undefined">{{ t('nav.skills') }}</a>
-        <a href="#projects" :class="{ 'is-active': active === 'projects' }" :aria-current="active === 'projects' ? 'true' : undefined">{{ t('nav.projects') }}</a>
-        <a href="#contact" :class="{ 'is-active': active === 'contact' }" :aria-current="active === 'contact' ? 'true' : undefined">{{ t('nav.contact') }}</a>
-        <NuxtLink to="/cv" :class="{ 'router-link-active': isCv }">{{ t('nav.cv') }}</NuxtLink>
+      <nav class="ms-auto hidden items-center gap-6 font-mono text-sm font-medium md:flex" aria-label="Sections">
+        <a
+          v-for="item in navItems"
+          :key="item.id"
+          :href="item.hash"
+          class="transition-colors hover:text-accent hover:no-underline"
+          :class="active === item.id ? 'text-ink underline decoration-accent decoration-2 underline-offset-8' : 'text-body'"
+          :aria-current="active === item.id ? 'true' : undefined"
+        >{{ t(item.label) }}</a>
+        <NuxtLink to="/cv" :class="isCv ? 'text-ink underline decoration-accent decoration-2 underline-offset-8' : 'text-body'" class="transition-colors hover:text-accent hover:no-underline">{{ t('nav.cv') }}</NuxtLink>
       </nav>
 
-      <div class="header-actions">
+      <div class="ms-auto flex items-center gap-2.5 md:ms-0">
         <NuxtLink
           :to="switchLocalePath(otherLocale)"
-          class="header-btn header-lang"
+          class="inline-flex h-9 items-center justify-center rounded-md border border-line bg-surface px-3 font-mono text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-accent hover:no-underline"
           :aria-label="isFa ? 'Change language to English' : 'تغییر زبان به فارسی'"
         >
           {{ isFa ? 'EN' : 'فا' }}
@@ -26,7 +36,7 @@
 
         <button
           type="button"
-          class="header-btn"
+          class="inline-flex size-9 items-center justify-center rounded-md border border-line bg-surface text-ink transition-colors hover:border-accent hover:text-accent"
           :aria-label="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
           :title="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
           @click="toggleTheme"
@@ -70,7 +80,7 @@
         </button>
 
         <a
-          class="header-btn"
+          class="inline-flex size-9 items-center justify-center rounded-md border border-line bg-surface text-ink transition-colors hover:border-accent hover:text-accent"
           href="https://github.com/amirabroun"
           target="_blank"
           rel="noopener"
@@ -96,9 +106,36 @@ const active = ref('')
 const route = useRoute()
 const isCv = computed(() => route.path === '/cv')
 
+const navItems = [
+  { id: 'about', hash: '#about', label: 'nav.about' },
+  { id: 'experience', hash: '#experience', label: 'nav.experience' },
+  { id: 'skills', hash: '#skills', label: 'nav.skills' },
+  { id: 'projects', hash: '#projects', label: 'nav.projects' },
+  { id: 'contact', hash: '#contact', label: 'nav.contact' },
+] as const
+
+// scroll progress for the top hairline bar (skipped under reduced motion)
+const progress = ref(0)
+
 onMounted(() => {
   theme.value =
     document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let raf = 0
+    const update = () => {
+      raf = 0
+      const doc = document.documentElement
+      const max = doc.scrollHeight - doc.clientHeight
+      progress.value = max > 0 ? Math.min(1, doc.scrollTop / max) : 0
+    }
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    update()
+    onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
+  }
 
   const io = new IntersectionObserver(
     (entries) => {
@@ -126,132 +163,3 @@ function toggleTheme() {
   window.setTimeout(() => root.classList.remove('theming'), 320)
 }
 </script>
-
-<style scoped>
-.site-header {
-  position: fixed;
-  inset: 0 0 auto;
-  z-index: 50;
-  background: var(--header-bg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  height: 68px;
-}
-
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.02rem;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-
-.logo:hover {
-  text-decoration: none;
-  color: var(--blue-700);
-}
-
-.logo-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: var(--grad);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  font-size: 0.78rem;
-  font-weight: 700;
-  box-shadow: var(--shadow-sm);
-}
-
-.site-nav {
-  display: flex;
-  gap: 26px;
-  margin-inline-start: auto;
-  font-size: 0.92rem;
-  font-weight: 500;
-}
-
-.site-nav a {
-  position: relative;
-  color: var(--body);
-}
-
-.site-nav a:hover {
-  color: var(--blue-600);
-  text-decoration: none;
-}
-
-.site-nav a::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  bottom: -6px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--grad);
-  opacity: 0;
-}
-
-.site-nav a.is-active,
-.site-nav a.router-link-active {
-  color: var(--ink);
-}
-
-.site-nav a.is-active::after,
-.site-nav a.router-link-active::after {
-  opacity: 1;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.header-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  color: var(--navy);
-  border: 1px solid var(--line);
-  background: var(--surface-raised);
-  transition: border-color 0.2s, color 0.2s, transform 0.2s;
-}
-
-.header-btn:hover {
-  color: var(--blue-600);
-  border-color: var(--blue-200);
-  transform: translateY(-1px);
-  text-decoration: none;
-}
-
-.header-lang {
-  padding: 0 13px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-@media (max-width: 720px) {
-  .site-nav {
-    display: none;
-  }
-
-  .header-actions {
-    margin-inline-start: auto;
-  }
-}
-</style>

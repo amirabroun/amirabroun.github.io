@@ -1,7 +1,7 @@
 <template>
-  <div ref="root" class="stat">
-    <span class="stat-value stat-num">{{ display }}</span>
-    <span class="stat-label">{{ label }}</span>
+  <div ref="root" class="text-center">
+    <span class="block font-display text-[clamp(1.6rem,3.4vw,2.2rem)] font-bold leading-tight text-ink" dir="ltr" style="unicode-bidi: isolate">{{ display }}</span>
+    <span class="mt-1 block font-mono text-xs text-muted">{{ label }}</span>
   </div>
 </template>
 
@@ -57,31 +57,3 @@ onMounted(() => {
   })
 })
 </script>
-
-<style scoped>
-.stat {
-  text-align: center;
-}
-
-.stat-value {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--ink);
-}
-
-/* isolate number+suffix from RTL bidi so "۵+" keeps its pinned order */
-.stat-num {
-  direction: ltr;
-  unicode-bidi: isolate;
-}
-
-.stat-label {
-  display: block;
-  margin-top: 4px;
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-</style>
